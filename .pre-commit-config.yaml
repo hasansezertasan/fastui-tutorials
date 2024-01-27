@@ -17,4 +17,9 @@ repos:
     hooks:
       - id: ruff
         name: ruff (python)
+        types_or: [ python, pyi, jupyter ]
+        args : [--config=pyproject.toml]
+      - id: ruff-format
+        name: ruff-format (python)
+        types_or: [ python, pyi, jupyter ]
         args : [--config=pyproject.toml]
