@@ -4,6 +4,8 @@ I'm exploring the capabilities of FastUI.
 
 ## Examples
 
+> Each example is a separate project and ordered by complexity.
+
 - [Hello World](hello-world)
 - [Random Number Generator](random-number-generator)
 - [Admin Panel](admin-panel)
