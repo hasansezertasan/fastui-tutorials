@@ -1,58 +1,33 @@
 from dataclasses import dataclass
-from typing import Any, Union
+from typing import Union
 
-from fastui import AnyComponent
+from fastui import _PREBUILT_CDN_URL, AnyComponent
 from fastui import components as c
 from fastui.events import GoToEvent
 
-
-def Master(
-	*components: AnyComponent,
-	title: str | None = None,
-) -> list[AnyComponent]:
-	return [
-		c.PageTitle(text=f"FastUI Admin Demo — {title}" if title else "FastUI Admin Demo"),
-		c.Navbar(
-			title="FastUI Demo",
-			title_event=GoToEvent(url="/"),
-			links=[
-				c.Link(
-					components=[c.Text(text="Users")],
-					on_click=GoToEvent(url="/user"),
-					active="startswith:/user",
-				),
-				c.Link(
-					components=[c.Text(text="Posts")],
-					on_click=GoToEvent(url="/post"),
-					active="startswith:/post",
-				),
-			],
-		),
-		c.Page(
-			components=[
-				*((c.Heading(text=title),) if title else ()),
-				*components,
-			],
-		),
-		c.Footer(
-			extra_text="FastUI Admin Demo",
-			links=[
-				c.Link(
-					components=[c.Text(text="Github")],
-					on_click=GoToEvent(url="https://github.com/hasansezertasan/FastUI-Admin"),
-				),
-				c.Link(
-					components=[c.Text(text="PyPI")],
-					on_click=GoToEvent(url="https://pypi.org/project/fastui-admin/"),
-				),
-			],
-		),
-	]
+base_template: str = """\
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <script type="module" crossorigin src="{cdn_url}/index.js"></script>
+    <link rel="stylesheet" crossorigin href="{cdn_url}/index.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
+"""
 
 
 @dataclass
 class MasterView:
 	title: Union[str, None] = "FastUI Admin"
+
+	def base(self) -> str:
+		return base_template.format(title=self.title, cdn_url=_PREBUILT_CDN_URL)
 
 	def render(self, *components: AnyComponent, title: str | None = None) -> list[AnyComponent]:
 		return [
