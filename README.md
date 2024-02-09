@@ -13,6 +13,7 @@ So this project (with simple examples) might be helpful for those who are new to
 - [Hello World](hello-world)
 - [Random Number Generator](random-number-generator)
 - [Admin Panel](admin-panel)
+- [BMI Calculator](bmi-calculator)
 
 ## Runing the examples
 
