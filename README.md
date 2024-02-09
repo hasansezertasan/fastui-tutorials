@@ -1,6 +1,10 @@
 # FastUI Tutorials
 
-I'm exploring the capabilities of FastUI.
+I'm exploring FastUI features and capabilities, and in doing so, I'm developing entry-level examples.
+
+FastUI doesn't have a documentation, so you need to figure out how to use it by looking at the source code (terrible idea if you don't know ReactJS) or by looking at the demo application (which is a bit complicated and hard to understand).
+
+So this project (with simple examples) might be helpful for those who are new to FastUI.
 
 ## Examples
 
