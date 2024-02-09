@@ -11,14 +11,13 @@ python = "^3.8"
 fastui = "^0.4.0"
 fastapi = {extras = ["all"], version = "^0.100.0"}
 typer = { extras = ["all"], version = "^0.9.0" }
-SQLalchemy = { extras = ["aiosqlite", "asyncio"], version = "2.0.23" }
-sqlalchemy-utils = { extras = ["password"], version = "^0.41.1" }
+SQLAlchemy = { extras = ["aiosqlite", "asyncio"], version = "2.0.23" }
 
 [tool.poetry.group.dev.dependencies]
-ipykernel = "^6.27.1"
-mypy = "^1.8.0"
-ruff = "^0.1.9"
-pre-commit = "^3.5.0"
+ipykernel = "^6.29.0"
+mypy = ">=1.0.0"
+ruff = "==0.2.0"
+pre-commit = ">=2.20.0, <4.0.0"
 
 [tool.ruff]
 # Run `ruff linter` command to see all available linters and their descriptions
