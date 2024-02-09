@@ -21,11 +21,10 @@ pre-commit = ">=2.20.0, <4.0.0"
 
 [tool.ruff]
 # Run `ruff linter` command to see all available linters and their descriptions
-target-version = "py311"
+target-version = "py38"
 line-length = 120
 show-fixes = true
 extend-include = ["*.ipynb"]
-ignore-init-module-imports = true
 fix = true
 
 [tool.ruff.lint]
@@ -60,6 +59,7 @@ fixable = ["ALL"]
 unfixable = []
 # Allow unused variables when underscore-prefixed.
 dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+ignore-init-module-imports = true
 
 [tool.ruff.format]
 # Like Black, use double quotes for strings.
