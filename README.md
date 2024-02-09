@@ -43,8 +43,16 @@ source venv/bin/activate
 - Install requirements:
 
 ```shell
+pip install -r 'requirements.txt'
+```
+
+- Install requirements per project, optional for many projects:
+
+```shell
 pip install -r '{{project-name}}/requirements.txt'
 ```
+
+> Replace `{{project-name}}` with the name of the project.
 
 ### Run the application
 
