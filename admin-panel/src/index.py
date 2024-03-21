@@ -1,3 +1,5 @@
+# Copyright 2024 Hasan Sezer Taşan <hasansezertasan@gmail.com>
+# Copyright (C) 2024 <hasansezertasan@gmail.com>
 from __future__ import annotations as _annotations
 
 from fastapi import APIRouter
@@ -8,7 +10,7 @@ from fastui.components.display import DisplayLookup, DisplayMode
 from src.db import LocalSession, Post, User
 from src.schemas import PostView, UserView
 
-from .master import Master
+from .master import master
 
 router = APIRouter()
 
@@ -23,7 +25,7 @@ async def user() -> list[AnyComponent]:
     with LocalSession() as session:
         users = session.query(User).all()
         users = [UserView.from_orm(user) for user in users]
-    return Master(
+    return master(
         c.Page(
             components=[
                 c.Heading(text="Users", level=2),
@@ -53,7 +55,7 @@ async def post() -> list[AnyComponent]:
     with LocalSession() as session:
         posts = session.query(Post).all()
         posts = [PostView.from_orm(post) for post in posts]
-    return Master(
+    return master(
         c.Page(
             components=[
                 c.Heading(text="Posts", level=2),
@@ -75,10 +77,10 @@ async def post() -> list[AnyComponent]:
 
 @router.get("/", response_model=FastUI, response_model_exclude_none=True)
 def index() -> list[AnyComponent]:
-    return Master(c.Markdown(text="# FastUI Admin Demo"))
+    return master(c.Markdown(text="# FastUI Admin Demo"))
 
 
 @router.get("/{path:path}", status_code=404)
-async def not_found():
+async def not_found() -> dict[str, str]:
     # So we don't fall through to the index page
     return {"message": "Not Found"}

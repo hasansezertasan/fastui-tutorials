@@ -1,3 +1,5 @@
+# Copyright 2024 Hasan Sezer Taşan <hasansezertasan@gmail.com>
+# Copyright (C) 2024 <hasansezertasan@gmail.com>
 from __future__ import annotations as _annotations
 
 from fastui import AnyComponent
@@ -5,12 +7,14 @@ from fastui import components as c
 from fastui.events import GoToEvent
 
 
-def Master(
+def master(
     *components: AnyComponent,
     title: str | None = None,
 ) -> list[AnyComponent]:
     return [
-        c.PageTitle(text=f"FastUI Admin Demo — {title}" if title else "FastUI Admin Demo"),
+        c.PageTitle(
+            text=f"FastUI Admin Demo — {title}" if title else "FastUI Admin Demo"
+        ),
         c.Navbar(
             title="FastUI Demo",
             title_event=GoToEvent(url="/"),
@@ -38,7 +42,9 @@ def Master(
             links=[
                 c.Link(
                     components=[c.Text(text="Github")],
-                    on_click=GoToEvent(url="https://github.com/hasansezertasan/FastUI-Admin"),
+                    on_click=GoToEvent(
+                        url="https://github.com/hasansezertasan/FastUI-Admin"
+                    ),
                 ),
                 c.Link(
                     components=[c.Text(text="PyPI")],

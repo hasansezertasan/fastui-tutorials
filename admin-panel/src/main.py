@@ -1,3 +1,5 @@
+# Copyright 2024 Hasan Sezer Taşan <hasansezertasan@gmail.com>
+# Copyright (C) 2024 <hasansezertasan@gmail.com>
 from __future__ import annotations as _annotations
 
 from fastapi import FastAPI

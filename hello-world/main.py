@@ -1,3 +1,5 @@
+# Copyright 2024 Hasan Sezer Taşan <hasansezertasan@gmail.com>
+# Copyright (C) 2024 <hasansezertasan@gmail.com>
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
 from fastui import AnyComponent, FastUI, prebuilt_html

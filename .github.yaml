@@ -1,0 +1,12 @@
+# This file doesn't configure anything, it's only for documentation purposes.
+github:
+  - description: I'm exploring the capabilities of FastUI.
+  - website:
+  - topics:
+    - web-application
+    - tutorial
+    - tutorials
+    - examples
+    - fastapi
+    - fastui
+  - include-on-home-page:

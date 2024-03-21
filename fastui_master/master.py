@@ -1,7 +1,9 @@
+# Copyright 2024 Hasan Sezer Taşan <hasansezertasan@gmail.com>
+# Copyright (C) 2024 <hasansezertasan@gmail.com>
 from dataclasses import dataclass
 from typing import Union
 
-from fastui import _PREBUILT_CDN_URL, AnyComponent
+from fastui import _PREBUILT_CDN_URL, AnyComponent  # noqa: PLC2701
 from fastui import components as c
 from fastui.events import GoToEvent
 
@@ -29,11 +31,14 @@ class MasterView:
     def base(self) -> str:
         return base_template.format(title=self.title, cdn_url=_PREBUILT_CDN_URL)
 
-    def render(self, *components: AnyComponent, title: str | None = None) -> list[AnyComponent]:
+    def render(
+        self, *components: AnyComponent, title: str | None = None
+    ) -> list[AnyComponent]:
+        title = title or self.title
         return [
-            c.PageTitle(text=self.title),
+            c.PageTitle(text=title),
             c.Navbar(
-                title=self.title,
+                title=title,
                 title_event=GoToEvent(url="/"),
                 links=[
                     c.Link(
@@ -55,7 +60,7 @@ class MasterView:
             ),
             c.Page(
                 components=[
-                    *((c.Heading(text=self.title),) if self.title else ()),
+                    *((c.Heading(text=title),) if title else ()),
                     *components,
                 ],
             ),

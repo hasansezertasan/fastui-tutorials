@@ -1,3 +1,5 @@
+# Copyright 2024 Hasan Sezer Taşan <hasansezertasan@gmail.com>
+# Copyright (C) 2024 <hasansezertasan@gmail.com>
 from __future__ import annotations as _annotations
 
 import random
@@ -28,7 +30,7 @@ def page() -> list[AnyComponent]:
                             load_trigger=PageEvent(name="replace"),
                             components=[
                                 c.Button(
-                                    text=f"Random: {random.randint(1,100)}",
+                                    text=f"Random: {random.randint(1, 100)}",
                                     on_click=PageEvent(name="replace"),
                                 ),
                             ],
@@ -50,7 +52,7 @@ async def modal_view() -> list[AnyComponent]:
             load_trigger=PageEvent(name="replace"),
             components=[
                 c.Button(
-                    text=f"Random: {random.randint(1,100)}",
+                    text=f"Random: {random.randint(1, 100)}",
                     on_click=PageEvent(name="replace"),
                 ),
             ],

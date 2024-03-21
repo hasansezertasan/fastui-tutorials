@@ -1,3 +1,5 @@
+# Copyright 2024 Hasan Sezer Taşan <hasansezertasan@gmail.com>
+# Copyright (C) 2024 <hasansezertasan@gmail.com>
 import typer
 from src.db import Base, LocalSession, Post, User, sync_engine
 
@@ -6,8 +8,7 @@ app = typer.Typer(name="Blog Site")
 
 @app.command(help="Create database")
 def create_database() -> None:
-    """
-    Create database
+    """Create database
 
     Usage:
         python toolbox.py create-database
@@ -18,8 +19,7 @@ def create_database() -> None:
 
 @app.command(help="Seed database")
 def seed_database() -> None:
-    """
-    Seed database
+    """Seed database
 
     Usage:
         python toolbox.py seed-database
@@ -71,12 +71,12 @@ def seed_database() -> None:
     with LocalSession() as session:
         for user in users:
             posts = user.pop("posts")
-            user = User(**user)
-            session.add(user)
+            user_obj = User(**user)
+            session.add(user_obj)
             session.commit()
             for post in posts:
-                post = Post(**post, user_id=user.id)
-                session.add(post)
+                post_obj = Post(**post, user_id=user_obj.id)
+                session.add(post_obj)
                 session.commit()
 
 
