@@ -44,7 +44,7 @@ def page() -> list[AnyComponent]:
 
 
 @app.get("/api/replace", response_model=FastUI, response_model_exclude_none=True)
-async def modal_view() -> list[AnyComponent]:
+def modal_view() -> list[AnyComponent]:
     time.sleep(0.5)
     return [
         c.ServerLoad(
@@ -61,6 +61,6 @@ async def modal_view() -> list[AnyComponent]:
 
 
 @app.get("/{path:path}")
-async def html_landing() -> HTMLResponse:
+def root() -> HTMLResponse:
     """Simple HTML page which serves the React app, comes last as it matches all paths."""
-    return HTMLResponse(prebuilt_html(title="FastUI Demo"))
+    return HTMLResponse(prebuilt_html(title="FastUI Random Number Generator"))

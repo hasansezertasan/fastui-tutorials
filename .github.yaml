@@ -3,10 +3,10 @@ github:
   - description: I'm exploring the capabilities of FastUI.
   - website:
   - topics:
-    - web-application
-    - tutorial
-    - tutorials
-    - examples
-    - fastapi
-    - fastui
+      - web-application
+      - tutorial
+      - tutorials
+      - examples
+      - fastapi
+      - fastui
   - include-on-home-page:
