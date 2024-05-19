@@ -198,12 +198,10 @@ count = true
 mypy = "mypy ."
 ruff-lint = "ruff check ."
 ruff-format = "ruff format ."
-djlint-lint = "djlint --lint ."
-djlint-format = "djlint --reformat ."
 codespell = "codespell ."
 shfmt = "shfmt -l -w scripts/"
-lint = ["ruff-lint", "djlint-lint", "codespell"]
-format = ["ruff-format", "shfmt", "djlint-format"]
+lint = ["ruff-lint", "codespell"]
+format = ["ruff-format", "shfmt"]
 # Analyzing tasks.
 line-count = "pygount --format=summary --folders-to-skip=vendor ."
 # Shortcuts for common tasks.
