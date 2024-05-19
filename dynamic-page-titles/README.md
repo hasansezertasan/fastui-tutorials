@@ -1,10 +1,10 @@
-# Page Example
+# Dynamic Page Titles
 
-This is a simple example that demonstrates how to use the `Navbar` component.
+This is a simple example that demonstrates how to use the `PageTitle` component.
 
 Used Components:
 
-- `Navbar`
+- `PageTitle`
 
 Used Events:
 
