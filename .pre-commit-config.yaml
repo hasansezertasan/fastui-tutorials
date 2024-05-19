@@ -1,3 +1,5 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
 exclude: ^(\.git|\.hg|\.mypy_cache|\.nox|\.tox|\.venv|_build|buck-out|build|dist|alembic)/
 default_language_version:
   python: python3.11
@@ -7,19 +9,47 @@ repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.6.0
     hooks:
-      - id: check-yaml
-      - id: end-of-file-fixer
-      - id: trailing-whitespace
       - id: check-added-large-files
-  # Check compliance with Ruff.
+        name: Check added large files
+      - id: check-toml
+        name: Check TOML
+      - id: check-yaml
+        name: Check YAML
+        args:
+          - --unsafe
+      - id: check-json
+        name: Check JSON
+      - id: end-of-file-fixer
+        name: End of file fixer
+      - id: trailing-whitespace
+        name: Trailing whitespace
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.4.4
     hooks:
       - id: ruff
-        name: ruff (python)
-        types_or: [ python, pyi, jupyter ]
-        args : [--config=pyproject.toml]
+        name: Ruff Linter
+        types_or: [python, pyi, jupyter]
+        args: [--config=pyproject.toml]
       - id: ruff-format
-        name: ruff-format (python)
-        types_or: [ python, pyi, jupyter ]
-        args : [--config=pyproject.toml]
+        name: Ruff Formatter
+        types_or: [python, pyi, jupyter]
+        args: [--config=pyproject.toml]
+  - repo: https://github.com/python-jsonschema/check-jsonschema
+    rev: 0.28.3
+    hooks:
+      - id: check-github-actions
+        name: Validate GitHub Actions
+        args: ["--verbose"]
+  # Uses [mvdan/sh](https://github.com/mvdan/sh)
+  - repo: https://github.com/scop/pre-commit-shfmt
+    rev: v3.8.0-1
+    hooks:
+      - id: shfmt
+        name: Shfmt Formatter for Shell Scripts
+        args: ["-l", "-w", "scripts/"]
+  - repo: https://github.com/codespell-project/codespell
+    rev: v2.2.6
+    hooks:
+      - id: codespell
+        additional_dependencies:
+          - tomli
