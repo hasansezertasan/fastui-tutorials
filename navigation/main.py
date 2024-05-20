@@ -19,23 +19,26 @@ def layout(*components: AnyComponent, title: str) -> list[AnyComponent]:
             title_event=GoToEvent(url="/"),
             start_links=[
                 c.Link(
-                    components=[c.Text(text='About')],
-                    on_click=GoToEvent(url='/about'),
-                    active='startswith:/about',
+                    components=[c.Text(text="About")],
+                    on_click=GoToEvent(url="/about"),
+                    active="startswith:/about",
                 ),
                 c.Link(
-                    components=[c.Text(text='Contact')],
-                    on_click=GoToEvent(url='/contact'),
-                    active='startswith:/contact',
+                    components=[c.Text(text="Contact")],
+                    on_click=GoToEvent(url="/contact"),
+                    active="startswith:/contact",
                 ),
                 c.Link(
                     components=[c.Text(text="GitHub")],
-                    on_click=GoToEvent(url="https://github.com/hasansezertasan", target="_blank"),
-                )
-            ]
+                    on_click=GoToEvent(
+                        url="https://github.com/hasansezertasan", target="_blank"
+                    ),
+                ),
+            ],
         ),
         c.Page(components=components),
     ]
+
 
 @app.get("/api/", response_model=FastUI, response_model_exclude_none=True)
 def page() -> list[AnyComponent]:
