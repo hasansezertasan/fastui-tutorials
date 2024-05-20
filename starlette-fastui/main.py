@@ -18,7 +18,7 @@ def page(request: Request) -> JSONResponse:
 
 def root(request: Request) -> HTMLResponse:
     """Simple HTML page which serves the React app, comes last as it matches all paths."""
-    return HTMLResponse(prebuilt_html(title="FastUI Hello World Example"))
+    return HTMLResponse(prebuilt_html(title="FastUI and Starlette Example"))
 
 
 app = Starlette(
