@@ -55,4 +55,4 @@ def page() -> list[AnyComponent]:
 @app.get("/{path:path}")
 def root() -> HTMLResponse:
     """Simple HTML page which serves the React app, comes last as it matches all paths."""
-    return HTMLResponse(prebuilt_html(title="FastUI Navbar Example"))
+    return HTMLResponse(prebuilt_html(title="FastUI Navigation"))
