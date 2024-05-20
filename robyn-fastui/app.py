@@ -21,7 +21,7 @@ def root(request: Request) -> Response:
     """Simple HTML page which serves the React app, comes last as it matches all paths."""
     return Response(
         status_code=status_codes.HTTP_200_OK,
-        description=prebuilt_html(title="FastUI and Flask Example"),
+        description=prebuilt_html(title="FastUI and Robyn Example"),
         headers=Headers({"Content-Type": "text/html; charset=utf-8"}),
     )
 
