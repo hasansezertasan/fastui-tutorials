@@ -18,7 +18,7 @@ Used Events:
 - `GoToEvent`
 - `PageEvent`
 
-## Running the examples
+## How to run
 
 ### Clone the repo
 

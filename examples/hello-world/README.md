@@ -6,7 +6,7 @@ Used Components:
 
 - `Heading`
 
-## Running the examples
+## How to run
 
 ### Clone the repo
 

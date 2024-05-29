@@ -14,7 +14,7 @@ Used Components:
 [pywebio]: https://github.com/pywebio/PyWebIO
 [pywebio-hello-world]: https://pywebio.readthedocs.io/en/latest/#hello-world
 
-## Running the examples
+## How to run
 
 ### Clone the repo
 
