@@ -2,23 +2,22 @@
 # Copyright (C) 2024 <hasansezertasan@gmail.com>
 from __future__ import annotations
 
-from typing import List
-
-from fastui import AnyComponent, prebuilt_html
+from fastui import prebuilt_html, FastUI
 from fastui import components as c
-from flask import Flask
-from render_response import render_response
+from flask import Flask, Response, jsonify
 
 app = Flask(__name__)
 
 
 @app.get("/api/")
-def page() -> List[AnyComponent]:
-    return render_response([c.Heading(text="Hello World")])
+def page() -> Response:
+    return jsonify(FastUI(root=[c.Heading(text="Hello World")]).model_dump())
 
 
 @app.get("/")
+@app.get("/<path:subpath>")
 def root() -> str:
+    """Simple HTML page which serves the React app, comes last as it matches all paths."""
     return prebuilt_html(title="FastUI and Flask Example")
 
 
