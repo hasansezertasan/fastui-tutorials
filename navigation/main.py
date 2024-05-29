@@ -46,12 +46,12 @@ def page() -> list[AnyComponent]:
 
 
 @app.get("/api/about", response_model=FastUI, response_model_exclude_none=True)
-def page() -> list[AnyComponent]:
+def page_about() -> list[AnyComponent]:
     return layout(c.Text(text="About Page!"), title="About Page!")
 
 
 @app.get("/api/contact", response_model=FastUI, response_model_exclude_none=True)
-def page() -> list[AnyComponent]:
+def page_contact() -> list[AnyComponent]:
     return layout(c.Text(text="Contact Page!"), title="Contact Page!")
 
 
