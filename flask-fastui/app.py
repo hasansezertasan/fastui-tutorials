@@ -2,7 +2,7 @@
 # Copyright (C) 2024 <hasansezertasan@gmail.com>
 from __future__ import annotations
 
-from fastui import prebuilt_html, FastUI
+from fastui import FastUI, prebuilt_html
 from fastui import components as c
 from flask import Flask, Response, jsonify
 
