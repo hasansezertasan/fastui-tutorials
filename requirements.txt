@@ -1,6 +1,0 @@
-fastui=0.6.0
-fastapi[all]=0.110.0
-typer[all]=0.12.3
-SQLAlchemy[aiosqlite,asyncio]=2.0.28
-flask==3.0.3
-litestar==2.8.3

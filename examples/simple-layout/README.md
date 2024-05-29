@@ -11,7 +11,7 @@ Used Events:
 
 - ...
 
-## Running the examples
+## How to run
 
 ### Clone the repo
 

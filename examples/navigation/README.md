@@ -14,7 +14,7 @@ Used Events:
 
 - `GoToEvent`
 
-## Running the examples
+## How to run
 
 ### Clone the repo
 
