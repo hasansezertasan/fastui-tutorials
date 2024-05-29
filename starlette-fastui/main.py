@@ -22,5 +22,8 @@ def root(request: Request) -> HTMLResponse:
 
 
 app = Starlette(
-    routes=[Route("/", root, methods=["GET"]), Route("/api/", page, methods=["GET"])]
+    routes=[
+        Route("/api/", page, methods=["GET"]),
+        Route("/{path:path}", root, methods=["GET"]),
+    ]
 )
