@@ -7,7 +7,7 @@ default_stages: [pre-commit, pre-push]
 repos:
   # https://github.com/pre-commit/pre-commit-hooks#pre-commit-hooks
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.6.0
+    rev: v5.0.0
     hooks:
       - id: check-added-large-files
         name: Check added large files
@@ -24,7 +24,7 @@ repos:
       - id: trailing-whitespace
         name: Trailing whitespace
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.4.4
+    rev: v0.7.0
     hooks:
       - id: ruff
         name: Ruff Linter
@@ -35,20 +35,20 @@ repos:
         types_or: [python, pyi, jupyter]
         args: [--config=pyproject.toml]
   - repo: https://github.com/python-jsonschema/check-jsonschema
-    rev: 0.28.3
+    rev: 0.29.4
     hooks:
       - id: check-github-actions
         name: Validate GitHub Actions
         args: ["--verbose"]
   # Uses [mvdan/sh](https://github.com/mvdan/sh)
   - repo: https://github.com/scop/pre-commit-shfmt
-    rev: v3.8.0-1
+    rev: v3.10.0-1
     hooks:
       - id: shfmt
         name: Shfmt Formatter for Shell Scripts
         args: ["-l", "-w", "scripts/"]
   - repo: https://github.com/codespell-project/codespell
-    rev: v2.2.6
+    rev: v2.3.0
     hooks:
       - id: codespell
         additional_dependencies:
