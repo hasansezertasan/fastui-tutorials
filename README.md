@@ -26,6 +26,15 @@ Each example is a separate project and ordered by complexity.
   - [Robyn Example](./examples/robyn-fastui/)
 - FAQ:
   - [Sub Application](./examples/sub-application/)
+- FastUI with databases:
+  - [SQLModel CRUD](./sqlalchemy-crud/): A simple CRUD application using [SQLModel][sqlmodel] and [FastUI][fastui].
+  - [ODMantic CRUD](./sqlalchemy-crud/): A simple CRUD application using [ODMantic][odmantic] and [FastUI][fastui].
+- FastUI Integrations and POCs:
+  - [ChatGPT Example](./examples/chatgpt-example/)
+  - [APScheduler UI](./apscheduler-ui/): A simple UI for [APScheduler][apscheduler] using [FastUI][fastui].
+  - [OAuth2 UI](./oauth2-ui/): A simple UI for OAuth2 using [FastUI][fastui].
+  - [Redis CLI](./redis-cli/): This example is inspired by [Flask Admin][flask-admin]'s Redis CLI implementation. It is a simple implementation of a Redis CLI using FastAPI and [FastUI][fastui].
+  - [Libcloud UI](./libcloud-ui/): The original idea was to create something similar to [Flask Admin](flask-admin)'s File Admin but my mind changed and I decided to create a simple UI for managing multiple buckets in different cloud providers using [Apache Libcloud][libcloud] and [FastUI][fastui].
 
 ### Other Examples
 
@@ -34,4 +43,9 @@ Each example is a separate project and ordered by complexity.
 - [jrycw/edgedb-fastapi-mvp: MVP: EdgeDB and FastAPI Integration with svcs](https://github.com/jrycw/edgedb-fastapi-mvp)
 
 <!-- Links -->
+[flask-admin]: https://github.com/flask-admin/flask-admin
+[sqlmodel]: https://sqlmodel.tiangolo.com/
+[odmantic]: https://github.com/art049/odmantic/
 [fastui]: https://github.com/pydantic/FastUI
+[apscheduler]: https://github.com/agronholm/apscheduler
+[libcloud]: https://github.com/apache/libcloud
