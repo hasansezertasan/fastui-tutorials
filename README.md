@@ -49,3 +49,37 @@ Each example is a separate project and ordered by complexity.
 [fastui]: https://github.com/pydantic/FastUI
 [apscheduler]: https://github.com/agronholm/apscheduler
 [libcloud]: https://github.com/apache/libcloud
+
+## Tasks
+
+### `check`
+
+```bash
+mypy --strict .
+```
+
+### `lint`
+
+```bash
+codespell .
+ruff check . --fix --unsafe-fixes
+```
+
+### `format`
+
+```bash
+ruff format .
+shfmt -l -w scripts/*.sh
+```
+
+### `run`
+
+```bash
+uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+```
+
+### `test`
+
+```bash
+pytest -v -s
+```
