@@ -18,7 +18,7 @@ typer = { extras = ["all"], version = "^0.12.3" }
 SQLAlchemy = { extras = ["aiosqlite", "asyncio"], version = "2.0.48" }
 
 [tool.poetry.group.dev.dependencies]
-ipykernel = "^6.29.0"
+ipykernel = "^7.0.0"
 mypy = ">=1.0.0"
 ruff = "0.15.5"
 codespell = "^2.3.0"
