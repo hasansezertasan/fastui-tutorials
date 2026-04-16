@@ -20,7 +20,7 @@ SQLAlchemy = { extras = ["aiosqlite", "asyncio"], version = "2.0.49" }
 [tool.poetry.group.dev.dependencies]
 ipykernel = "^7.0.0"
 mypy = ">=1.0.0"
-ruff = "0.15.10"
+ruff = "0.15.11"
 codespell = "^2.3.0"
 pre-commit = ">=4.5.1, <4.6.0"
 
