@@ -29,7 +29,7 @@ jobs:
         if: steps.setup-uv.outputs.cache-hit == 'true'
         run: echo "Cache was restored"
       - name: Sync
-        run: uv sync --locked
+        run: uv sync --locked --all-groups --all-packages
       - name: Checks
         run: |
           uv run --locked validate-pyproject pyproject.toml
