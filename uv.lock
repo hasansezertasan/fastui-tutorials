@@ -394,7 +394,7 @@ requires-dist = [
     { name = "fastui", specifier = ">=0.6.0,<1.0.0" },
     { name = "flask", specifier = ">=3.0.3,<4.0.0" },
     { name = "litestar", specifier = ">=2.8.3,<3.0.0" },
-    { name = "robyn", specifier = "==0.54.4" },
+    { name = "robyn", specifier = ">=0.54.4,<1.0.0" },
 ]
 
 [package.metadata.requires-dev]
