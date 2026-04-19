@@ -7,7 +7,11 @@ authors = [
     { name = "hasansezertasan", email = "hasansezertasan@gmail.com" }
 ]
 requires-python = ">=3.10"
-dependencies = ["blacksheep"]
+dependencies = [
+    "blacksheep",
+    "fastui",
+    "uvicorn",
+]
 
 [project.scripts]
 with-blacksheep = "with_blacksheep:main"

@@ -1953,10 +1953,16 @@ version = "0.1.0"
 source = { editable = "integrations/with-blacksheep" }
 dependencies = [
     { name = "blacksheep" },
+    { name = "fastui" },
+    { name = "uvicorn" },
 ]
 
 [package.metadata]
-requires-dist = [{ name = "blacksheep" }]
+requires-dist = [
+    { name = "blacksheep" },
+    { name = "fastui" },
+    { name = "uvicorn" },
+]
 
 [[package]]
 name = "with-bottle"
