@@ -5,6 +5,8 @@ from fastui import FastUI, prebuilt_html
 from fastui import components as c
 from flask import Flask, Response, jsonify
 
+FastUI.model_rebuild()
+
 app = Flask(__name__)
 
 
