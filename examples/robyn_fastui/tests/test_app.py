@@ -14,7 +14,7 @@ from robyn.robyn import HttpMethod
 if TYPE_CHECKING:
     from collections.abc import Callable
 
-    from robyn import Request, Robyn
+    from robyn import Request, Response, Robyn
 
 
 def load_example_module() -> ModuleType:
@@ -38,7 +38,11 @@ def test_robyn_app_registers_api_root_and_shell_routes() -> None:
     """Register API, root, and wildcard shell routes in matching order."""
     module = load_example_module()
     app = cast("Robyn", module.app)
-    routes = [route.route for route in app.router.get_routes() if route.route_type == HttpMethod.GET]
+    routes = [
+        route.route
+        for route in app.router.get_routes()
+        if route.route_type == HttpMethod.GET
+    ]
 
     # Check for presence and relative ordering of critical routes
     # API should come before root/wildcard to avoid being shadowed
@@ -51,7 +55,7 @@ def test_robyn_app_registers_api_root_and_shell_routes() -> None:
 def test_robyn_api_route_returns_fastui_json() -> None:
     """Serialize the FastUI component tree for the API route."""
     module = load_example_module()
-    page = cast("Callable[[Request], object]", module.page)
+    page = cast("Callable[[Request], Response]", module.page)
 
     response = page(cast("Request", object()))
     description = cast("bytes", response.description)

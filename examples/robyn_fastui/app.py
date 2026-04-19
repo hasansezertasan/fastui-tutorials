@@ -1,9 +1,12 @@
 # Copyright (C) 2024 Hasan Sezer Taşan <hasansezertasan@gmail.com>
 from __future__ import annotations
 
+from typing import cast
+
 from fastui import AnyComponent, FastUI, prebuilt_html
 from fastui import components as c
 from robyn import Headers, Request, Response, Robyn, jsonify, status_codes
+
 
 def setup_fastui() -> None:
     """Register FastUI components and rebuild models.
@@ -18,13 +21,13 @@ setup_fastui()
 app = Robyn(__file__)
 
 
-@app.get("/api/")
-def page(request: Request) -> str:
-    return jsonify(FastUI(root=[c.Heading(text="Hello World")]).model_dump())
+@app.get("/api/")  # type: ignore[misc]
+def page(request: Request) -> Response:
+    return cast(Response, jsonify(FastUI(root=[c.Heading(text="Hello World")]).model_dump()))
 
 
-@app.get("/*path")
-@app.get("/")
+@app.get("/*path")  # type: ignore[misc]
+@app.get("/")  # type: ignore[misc]
 def root(request: Request) -> Response:
     """Simple HTML page which serves the React app, comes last as it matches all paths."""
     return Response(
