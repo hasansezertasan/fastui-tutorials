@@ -24,7 +24,8 @@ app = Robyn(__file__)
 @app.get("/api/")  # type: ignore[misc]
 def page(request: Request) -> Response:
     return cast(
-        "Response", jsonify(FastUI(root=[c.Heading(text="Hello World")]).model_dump()),
+        "Response",
+        jsonify(FastUI(root=[c.Heading(text="Hello World")]).model_dump()),
     )
 
 
