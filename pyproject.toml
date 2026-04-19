@@ -23,6 +23,9 @@ dev = [
   "ruff==0.15.11",
   "codespell<3.0.0,>=2.3.0",
   "pre-commit<4.0.0,>=2.20.0",
+  "validate-pyproject>=0.25",
+  "vulture>=2.16",
+  "taplo>=0.9.3",
 ]
 test = ["pytest<9.1.0,>=9.0.3"]
 
@@ -42,6 +45,34 @@ ignore = [
 ]
 preview = true
 
+[tool.ruff.lint.per-file-ignores]
+"components/navbar/src/navbar/__init__.py" = ["CPY001", "D104"]
+"examples/**/*.py" = [
+  "A002",
+  "ARG001",
+  "CPY001",
+  "D100",
+  "D101",
+  "D102",
+  "D103",
+  "D104",
+  "DOC201",
+  "FAST003",
+  "INP001",
+  "RUF029",
+  "RUF067",
+  "S201",
+  "S311",
+  "T201",
+]
+"integrations/with-*/src/**/__init__.py" = [
+  "CPY001",
+  "D103",
+  "D104",
+  "RUF067",
+  "T201",
+]
+
 
 [tool.ruff.lint.flake8-copyright]
 author = "Hasan Sezer Taşan <hasansezertasan@gmail.com>"
@@ -60,25 +91,30 @@ docstring-code-line-length = "dynamic"
 skip = 'uv.lock'
 count = true
 
+[tool.vulture]
+exclude = [".venv"]
+ignore_names = ["path", "request"]
+min_confidence = 100
+
 [tool.uv.workspace]
 members = [
-    "integrations/with-litestar",
-    "integrations/with-starlette",
-    "integrations/with-blacksheep",
-    "integrations/with-robyn",
-    "integrations/with-django",
-    "integrations/with-flask",
-    "examples/simple_form",
-    "integrations/with-quart",
-    "components/navbar",
-    "integrations/with-fastapi-sub-application",
-    "integrations/with-tornado",
-    "integrations/with-pyramid",
-    "integrations/with-bottle",
-    "integrations/with-sanic",
-    "integrations/with-hug",
-    "integrations/with-masonite",
-    "integrations/with-emmet",
-    "integrations/with-falcon",
-    "integrations/with-fastapi",
+  "integrations/with-litestar",
+  "integrations/with-starlette",
+  "integrations/with-blacksheep",
+  "integrations/with-robyn",
+  "integrations/with-django",
+  "integrations/with-flask",
+  "examples/simple_form",
+  "integrations/with-quart",
+  "components/navbar",
+  "integrations/with-fastapi-sub-application",
+  "integrations/with-tornado",
+  "integrations/with-pyramid",
+  "integrations/with-bottle",
+  "integrations/with-sanic",
+  "integrations/with-hug",
+  "integrations/with-masonite",
+  "integrations/with-emmet",
+  "integrations/with-falcon",
+  "integrations/with-fastapi",
 ]

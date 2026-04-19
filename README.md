@@ -22,6 +22,7 @@ Each example is a separate project and ordered by complexity.
 - FastUI with other frameworks:
   - [Starlette Example](./examples/starlette_fastui/)
   - [Litestar Example](./examples/litestar_fastui/)
+  - [BlackSheep Example](./integrations/with-blacksheep/)
   - [Flask Example](./examples/flask_fastui/)
   - [Robyn Example](./examples/robyn_fastui/)
 - FAQ:

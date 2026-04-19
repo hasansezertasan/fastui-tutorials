@@ -3,7 +3,7 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
-from fastui import AnyComponent, FastUI, prebuilt_html
+from fastui import FastUI, prebuilt_html
 from fastui import components as c
 from starlette.applications import Starlette
 from starlette.responses import HTMLResponse, JSONResponse
@@ -11,6 +11,7 @@ from starlette.routing import Route
 
 if TYPE_CHECKING:
     from starlette.requests import Request
+
 
 def page(request: Request) -> JSONResponse:
     return JSONResponse(FastUI(root=[c.Heading(text="Hello World")]).model_dump())

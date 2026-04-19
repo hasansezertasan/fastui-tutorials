@@ -14,6 +14,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          fetch-depth: 0
       - name: Set up Python
         uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
         with:
@@ -27,7 +29,7 @@ jobs:
         if: steps.setup-uv.outputs.cache-hit == 'true'
         run: echo "Cache was restored"
       - name: Sync
-        run: uv sync --locked
+        run: uv sync --locked --all-groups --all-packages
       - name: Checks
         run: |
           uv run --locked validate-pyproject pyproject.toml
@@ -35,5 +37,6 @@ jobs:
           uv run --locked vulture .
           uv run --locked ruff check --output-format=github
           uv run --locked taplo lint pyproject.toml
-          uv run --locked ruff format
-          uv run --locked taplo format pyproject.toml
+          uv run --locked ruff format --check
+          uv run --locked taplo format --check pyproject.toml
+          uv run --locked pytest -q
