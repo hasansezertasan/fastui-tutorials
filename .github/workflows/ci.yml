@@ -1,0 +1,39 @@
+---
+name: CI
+on:
+  workflow_dispatch: # Allows manual triggering of the workflow
+  pull_request:
+    branches: ["main"] # Triggers on pull requests targeting the main branch
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }} # Grouping by workflow name and reference
+  cancel-in-progress: true # Cancel any in-progress runs for the same group
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - name: Set up Python
+        uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
+        with:
+          python-version-file: ".python-version"
+      - name: Setup uv
+        id: setup-uv
+        uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
+        with:
+          enable-cache: true
+      - name: Restore cache
+        if: steps.setup-uv.outputs.cache-hit == 'true'
+        run: echo "Cache was restored"
+      - name: Sync
+        run: uv sync --locked
+      - name: Checks
+        run: |
+          uv run --locked validate-pyproject pyproject.toml
+          uv run --locked codespell .
+          uv run --locked vulture .
+          uv run --locked ruff check --output-format=github
+          uv run --locked taplo lint pyproject.toml
+          uv run --locked ruff format
+          uv run --locked taplo format pyproject.toml

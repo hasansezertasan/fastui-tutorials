@@ -1,0 +1,17 @@
+[project]
+name = "simple-form"
+version = "0.1.0"
+description = "FastUI integration with simple-form"
+readme = "README.md"
+authors = [
+    { name = "hasansezertasan", email = "hasansezertasan@gmail.com" }
+]
+requires-python = ">=3.10"
+dependencies = []
+
+[project.scripts]
+simple-form = "simple_form:main"
+
+[build-system]
+requires = ["uv_build>=0.8.22,<0.9.0"]
+build-backend = "uv_build"

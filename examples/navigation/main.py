@@ -1,5 +1,4 @@
-# Copyright 2024 Hasan Sezer Taşan <hasansezertasan@gmail.com>
-# Copyright (C) 2024 <hasansezertasan@gmail.com>
+# Copyright (C) 2024 Hasan Sezer Taşan <hasansezertasan@gmail.com>
 from __future__ import annotations
 
 from fastapi import FastAPI
@@ -31,7 +30,8 @@ def layout(*components: AnyComponent, title: str) -> list[AnyComponent]:
                 c.Link(
                     components=[c.Text(text="GitHub")],
                     on_click=GoToEvent(
-                        url="https://github.com/hasansezertasan", target="_blank"
+                        url="https://github.com/hasansezertasan",
+                        target="_blank",
                     ),
                 ),
             ],
@@ -56,6 +56,6 @@ def page_contact() -> list[AnyComponent]:
 
 
 @app.get("/{path:path}")
-def root() -> HTMLResponse:
+def root(path: str) -> HTMLResponse:
     """Simple HTML page which serves the React app, comes last as it matches all paths."""
     return HTMLResponse(prebuilt_html(title="FastUI Navigation"))

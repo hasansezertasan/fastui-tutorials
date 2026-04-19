@@ -1,0 +1,17 @@
+[project]
+name = "with-litestar"
+version = "0.1.0"
+description = "FastUI integration with litestar"
+readme = "README.md"
+authors = [
+    { name = "hasansezertasan", email = "hasansezertasan@gmail.com" }
+]
+requires-python = ">=3.10"
+dependencies = ["litestar"]
+
+[project.scripts]
+with-litestar = "with_litestar:main"
+
+[build-system]
+requires = ["uv_build>=0.8.22,<0.9.0"]
+build-backend = "uv_build"

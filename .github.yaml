@@ -1,12 +1,10 @@
-# This file doesn't configure anything, it's only for documentation purposes.
+# GitHub repository metadata (documentation only, not machine-consumed).
 github:
-  - description: I'm exploring the capabilities of FastUI.
-  - website:
-  - topics:
-      - web-application
-      - tutorial
-      - tutorials
-      - examples
-      - fastapi
-      - fastui
-  - include-on-home-page:
+  description: I'm exploring the capabilities of FastUI.
+  topics:
+    - web-application
+    - tutorial
+    - tutorials
+    - examples
+    - fastapi
+    - fastui
