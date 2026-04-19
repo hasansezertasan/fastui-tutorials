@@ -1,8 +1,7 @@
-# Copyright 2024 Hasan Sezer Taşan <hasansezertasan@gmail.com>
-# Copyright (C) 2024 <hasansezertasan@gmail.com>
+# Copyright (C) 2024 Hasan Sezer Taşan <hasansezertasan@gmail.com>
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, List, Optional
+from typing import TYPE_CHECKING
 
 from fastui import AnyComponent, prebuilt_html
 from fastui import components as c

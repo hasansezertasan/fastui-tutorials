@@ -1,9 +1,8 @@
-# Copyright 2024 Hasan Sezer Taşan <hasansezertasan@gmail.com>
-# Copyright (C) 2024 <hasansezertasan@gmail.com>
+# Copyright (C) 2024 Hasan Sezer Taşan <hasansezertasan@gmail.com>
 from __future__ import annotations as _annotations
 
+import asyncio
 import random
-import time
 
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
@@ -44,8 +43,8 @@ def page() -> list[AnyComponent]:
 
 
 @app.get("/api/replace", response_model=FastUI, response_model_exclude_none=True)
-def modal_view() -> list[AnyComponent]:
-    time.sleep(0.5)
+async def modal_view() -> list[AnyComponent]:
+    await asyncio.sleep(0.5)
     return [
         c.ServerLoad(
             path="/replace",
@@ -61,6 +60,6 @@ def modal_view() -> list[AnyComponent]:
 
 
 @app.get("/{path:path}")
-def root(path) -> HTMLResponse:
+def root(path: str) -> HTMLResponse:
     """Simple HTML page which serves the React app, comes last as it matches all paths."""
     return HTMLResponse(prebuilt_html(title="FastUI Random Number Generator"))

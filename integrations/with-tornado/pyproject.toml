@@ -1,7 +1,7 @@
 [project]
 name = "with-tornado"
 version = "0.1.0"
-description = "Add your description here"
+description = "FastUI integration with tornado"
 readme = "README.md"
 authors = [
     { name = "hasansezertasan", email = "hasansezertasan@gmail.com" }

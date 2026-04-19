@@ -1,7 +1,7 @@
 [project]
 name = "with-bottle"
 version = "0.1.0"
-description = "Add your description here"
+description = "FastUI integration with bottle"
 readme = "README.md"
 authors = [
     { name = "hasansezertasan", email = "hasansezertasan@gmail.com" }

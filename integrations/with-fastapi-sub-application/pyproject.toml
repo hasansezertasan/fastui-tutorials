@@ -1,7 +1,7 @@
 [project]
 name = "with-fastapi-sub-application"
 version = "0.1.0"
-description = "Add your description here"
+description = "FastUI integration with fastapi-sub-application"
 readme = "README.md"
 authors = [
     { name = "hasansezertasan", email = "hasansezertasan@gmail.com" }

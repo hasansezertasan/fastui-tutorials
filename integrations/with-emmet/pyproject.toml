@@ -1,7 +1,7 @@
 [project]
 name = "with-emmet"
 version = "0.1.0"
-description = "Add your description here"
+description = "FastUI integration with emmet"
 readme = "README.md"
 authors = [
     { name = "hasansezertasan", email = "hasansezertasan@gmail.com" }

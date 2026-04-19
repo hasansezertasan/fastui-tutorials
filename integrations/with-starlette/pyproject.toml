@@ -1,7 +1,7 @@
 [project]
 name = "with-starlette"
 version = "0.1.0"
-description = "Add your description here"
+description = "FastUI integration with starlette"
 readme = "README.md"
 authors = [
     { name = "hasansezertasan", email = "hasansezertasan@gmail.com" }

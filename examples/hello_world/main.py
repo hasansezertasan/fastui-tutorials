@@ -1,7 +1,6 @@
-# Copyright 2024 Hasan Sezer Taşan <hasansezertasan@gmail.com>
-# Copyright (C) 2024 <hasansezertasan@gmail.com>
+# Copyright (C) 2024 Hasan Sezer Taşan <hasansezertasan@gmail.com>
 # /// script
-# requires-python = ">=3.12"
+# requires-python = ">=3.10"
 # dependencies = [
 #     "fastapi",
 #     "fastui==0.7.0",

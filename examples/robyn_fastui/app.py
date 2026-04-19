@@ -1,10 +1,7 @@
-# Copyright 2024 Hasan Sezer Taşan <hasansezertasan@gmail.com>
-# Copyright (C) 2024 <hasansezertasan@gmail.com>
+# Copyright (C) 2024 Hasan Sezer Taşan <hasansezertasan@gmail.com>
 from __future__ import annotations
 
-from typing import List
-
-from fastui import AnyComponent, FastUI, prebuilt_html
+from fastui import FastUI, prebuilt_html
 from fastui import components as c
 from robyn import Headers, Request, Response, Robyn, jsonify, status_codes
 

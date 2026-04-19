@@ -1,5 +1,4 @@
-# Copyright 2024 Hasan Sezer Taşan <hasansezertasan@gmail.com>
-# Copyright (C) 2024 <hasansezertasan@gmail.com>
+# Copyright (C) 2024 Hasan Sezer Taşan <hasansezertasan@gmail.com>
 from __future__ import annotations
 
 from fastapi import FastAPI
@@ -16,7 +15,7 @@ def foo_page() -> list[AnyComponent]:
 
 
 @fooapp.get("/{path:path}")
-def foo_root(path) -> HTMLResponse:
+def foo_root(path: str) -> HTMLResponse:
     """Simple HTML page which serves the React app, comes last as it matches all paths."""
     return HTMLResponse(
         prebuilt_html(
@@ -36,7 +35,7 @@ def bar_page() -> list[AnyComponent]:
 
 
 @barapp.get("/{path:path}")
-def bar_root(path) -> HTMLResponse:
+def bar_root(path: str) -> HTMLResponse:
     """Simple HTML page which serves the React app, comes last as it matches all paths.
 
     Returns:

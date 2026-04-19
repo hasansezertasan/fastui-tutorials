@@ -1,8 +1,5 @@
-# Copyright 2024 Hasan Sezer Taşan <hasansezertasan@gmail.com>
-# Copyright (C) 2024 <hasansezertasan@gmail.com>
+# Copyright (C) 2024 Hasan Sezer Taşan <hasansezertasan@gmail.com>
 from __future__ import annotations
-
-from typing import List
 
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
@@ -38,7 +35,7 @@ def page() -> list[AnyComponent]:
 
 
 @app.post("/api/calculate", response_model=FastUI, response_model_exclude_none=True)
-def login_form_post(
+def calculate_bmi_post(
     form: Annotated[BMIForm, fastui_form(BMIForm)],
 ) -> list[AnyComponent]:
     text = f"Your BMI is {form.calculate_bmi()}"
@@ -46,6 +43,6 @@ def login_form_post(
 
 
 @app.get("/{path:path}")
-def root(path) -> HTMLResponse:
+def root(path: str) -> HTMLResponse:
     """Simple HTML page which serves the React app, comes last as it matches all paths."""
     return HTMLResponse(prebuilt_html(title="Simple Form: BMI Calculator"))

@@ -14,7 +14,7 @@ dependencies = [
   "fastapi[all]<1.0.0,>=0.110.0",
   "flask<4.0.0,>=3.0.3",
   "litestar<3.0.0,>=2.8.3",
-  "robyn==0.54.4",
+  "robyn<1.0.0,>=0.54.4",
 ]
 
 [dependency-groups]
@@ -38,8 +38,7 @@ fix = true
 select = ["ALL"]
 fixable = ["ALL"]
 ignore = [
-  "E501", # line too long, handled by black
-  "F401", # imported but unused
+  "E501", # line too long, handled by ruff format
 ]
 preview = true
 

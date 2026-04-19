@@ -1,7 +1,7 @@
 [project]
 name = "with-quart"
 version = "0.1.0"
-description = "Add your description here"
+description = "FastUI integration with quart"
 readme = "README.md"
 authors = [
     { name = "hasansezertasan", email = "hasansezertasan@gmail.com" }

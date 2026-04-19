@@ -1,5 +1,4 @@
-# Copyright 2024 Hasan Sezer Taşan <hasansezertasan@gmail.com>
-# Copyright (C) 2024 <hasansezertasan@gmail.com>
+# Copyright (C) 2024 Hasan Sezer Taşan <hasansezertasan@gmail.com>
 from __future__ import annotations
 
 from typing import TYPE_CHECKING
@@ -12,9 +11,6 @@ from starlette.routing import Route
 
 if TYPE_CHECKING:
     from starlette.requests import Request
-
-app = Starlette()
-
 
 def page(request: Request) -> JSONResponse:
     return JSONResponse(FastUI(root=[c.Heading(text="Hello World")]).model_dump())

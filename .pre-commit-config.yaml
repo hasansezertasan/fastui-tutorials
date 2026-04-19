@@ -24,7 +24,7 @@ repos:
       - id: trailing-whitespace
         name: Trailing whitespace
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.13.3
+    rev: v0.15.11
     hooks:
       - id: ruff
         name: Ruff Linter
@@ -35,20 +35,13 @@ repos:
         types_or: [python, pyi, jupyter]
         args: [--config=pyproject.toml]
   - repo: https://github.com/python-jsonschema/check-jsonschema
-    rev: 0.34.0
+    rev: 0.37.1
     hooks:
       - id: check-github-actions
         name: Validate GitHub Actions
         args: ["--verbose"]
-  # Uses [mvdan/sh](https://github.com/mvdan/sh)
-  - repo: https://github.com/scop/pre-commit-shfmt
-    rev: v3.8.0-1
-    hooks:
-      - id: shfmt
-        name: Shfmt Formatter for Shell Scripts
-        args: ["-l", "-w", "scripts/"]
   - repo: https://github.com/codespell-project/codespell
-    rev: v2.2.6
+    rev: v2.4.2
     hooks:
       - id: codespell
         additional_dependencies:
