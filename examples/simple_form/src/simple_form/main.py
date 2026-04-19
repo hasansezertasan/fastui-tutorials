@@ -10,6 +10,8 @@ from fastui import components as c
 from fastui.forms import fastui_form
 from pydantic import BaseModel, Field
 
+FastUI.model_rebuild()
+
 app = FastAPI()
 
 

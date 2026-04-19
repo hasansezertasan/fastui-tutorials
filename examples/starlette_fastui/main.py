@@ -12,6 +12,8 @@ from starlette.routing import Route
 if TYPE_CHECKING:
     from starlette.requests import Request
 
+FastUI.model_rebuild()
+
 
 def page(request: Request) -> JSONResponse:
     return JSONResponse(FastUI(root=[c.Heading(text="Hello World")]).model_dump())

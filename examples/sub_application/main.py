@@ -6,6 +6,8 @@ from fastapi.responses import HTMLResponse
 from fastui import AnyComponent, FastUI, prebuilt_html
 from fastui import components as c
 
+FastUI.model_rebuild()
+
 fooapp = FastAPI()
 
 

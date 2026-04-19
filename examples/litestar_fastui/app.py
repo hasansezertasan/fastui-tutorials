@@ -3,12 +3,14 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
-from fastui import AnyComponent, prebuilt_html
+from fastui import AnyComponent, FastUI, prebuilt_html
 from fastui import components as c
 from litestar import Litestar, MediaType, get
 
 if TYPE_CHECKING:
     from pathlib import Path
+
+FastUI.model_rebuild()
 
 
 @get("/api/", media_type=MediaType.JSON)

@@ -10,6 +10,8 @@ from fastui import AnyComponent, FastUI, prebuilt_html
 from fastui import components as c
 from fastui.events import GoToEvent, PageEvent
 
+FastUI.model_rebuild()
+
 app = FastAPI()
 
 
