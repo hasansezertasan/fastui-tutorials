@@ -20,14 +20,14 @@ dependencies = [
 [dependency-groups]
 dev = [
   "mypy>=1.0.0",
-  "ruff==0.13.3",
+  "ruff==0.15.11",
   "codespell<3.0.0,>=2.3.0",
   "pre-commit<4.0.0,>=2.20.0",
   "validate-pyproject>=0.25",
   "vulture>=2.16",
   "taplo>=0.9.3",
 ]
-test = ["pytest<9.0.0,>=8.3.4"]
+test = ["pytest<9.1.0,>=9.0.3"]
 
 
 [tool.ruff]
@@ -44,6 +44,34 @@ ignore = [
   "E501", # line too long, handled by ruff format
 ]
 preview = true
+
+[tool.ruff.lint.per-file-ignores]
+"components/navbar/src/navbar/__init__.py" = ["CPY001", "D104"]
+"examples/**/*.py" = [
+  "A002",
+  "ARG001",
+  "CPY001",
+  "D100",
+  "D101",
+  "D102",
+  "D103",
+  "D104",
+  "DOC201",
+  "FAST003",
+  "INP001",
+  "RUF029",
+  "RUF067",
+  "S201",
+  "S311",
+  "T201",
+]
+"integrations/with-*/src/**/__init__.py" = [
+  "CPY001",
+  "D103",
+  "D104",
+  "RUF067",
+  "T201",
+]
 
 
 [tool.ruff.lint.flake8-copyright]
@@ -62,6 +90,11 @@ docstring-code-line-length = "dynamic"
 [tool.codespell]
 skip = 'uv.lock'
 count = true
+
+[tool.vulture]
+exclude = [".venv"]
+ignore_names = ["path", "request"]
+min_confidence = 100
 
 [tool.uv.workspace]
 members = [

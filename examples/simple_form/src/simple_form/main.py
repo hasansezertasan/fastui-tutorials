@@ -1,13 +1,14 @@
 # Copyright (C) 2024 Hasan Sezer Taşan <hasansezertasan@gmail.com>
 from __future__ import annotations
 
+from typing import Annotated
+
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
 from fastui import AnyComponent, FastUI, prebuilt_html
 from fastui import components as c
 from fastui.forms import fastui_form
 from pydantic import BaseModel, Field
-from typing_extensions import Annotated
 
 app = FastAPI()
 
