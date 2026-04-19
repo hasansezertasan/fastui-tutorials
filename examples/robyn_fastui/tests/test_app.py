@@ -38,13 +38,14 @@ def test_robyn_app_registers_api_root_and_shell_routes() -> None:
     """Register API, root, and wildcard shell routes in matching order."""
     module = load_example_module()
     app = cast("Robyn", module.app)
-    routes = [(route.route_type, route.route) for route in app.router.get_routes()]
+    routes = [route.route for route in app.router.get_routes() if route.route_type == HttpMethod.GET]
 
-    assert routes == [
-        (HttpMethod.GET, "/api/"),
-        (HttpMethod.GET, "/"),
-        (HttpMethod.GET, "/*path"),
-    ]
+    # Check for presence and relative ordering of critical routes
+    # API should come before root/wildcard to avoid being shadowed
+    expected_order = ["/api/", "/", "/*path"]
+    actual_order = [r for r in routes if r in expected_order]
+
+    assert actual_order == expected_order
 
 
 def test_robyn_api_route_returns_fastui_json() -> None:

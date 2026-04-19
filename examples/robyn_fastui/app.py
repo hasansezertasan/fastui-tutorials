@@ -5,8 +5,16 @@ from fastui import AnyComponent, FastUI, prebuilt_html
 from fastui import components as c
 from robyn import Headers, Request, Response, Robyn, jsonify, status_codes
 
-FastUI.model_rebuild(_types_namespace={"AnyComponent": AnyComponent})
+def setup_fastui() -> None:
+    """Register FastUI components and rebuild models.
 
+    This ensures that AnyComponent and other FastUI types are correctly
+    recognized within the Pydantic models when used with Robyn.
+    """
+    FastUI.model_rebuild(_types_namespace={"AnyComponent": AnyComponent})
+
+
+setup_fastui()
 app = Robyn(__file__)
 
 
