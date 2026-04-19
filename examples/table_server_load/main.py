@@ -23,6 +23,8 @@ FastUI.model_rebuild()
 
 app = FastAPI()
 
+USER_DETAILS_EVENT = "user-details"
+
 
 class User(BaseModel):
     id: int = Field(title="ID")
@@ -51,7 +53,7 @@ def users_table() -> list[AnyComponent]:
                         DisplayLookup(
                             field="id",
                             on_click=PageEvent(
-                                name="user-details",
+                                name=USER_DETAILS_EVENT,
                                 context={"user_id": "{id}"},
                             ),
                         ),
@@ -62,8 +64,8 @@ def users_table() -> list[AnyComponent]:
                 c.Div(
                     components=[
                         c.ServerLoad(
-                            path="/user-details/{user_id}",
-                            load_trigger=PageEvent(name="user-details"),
+                            path="/api/user-details/{user_id}",
+                            load_trigger=PageEvent(name=USER_DETAILS_EVENT),
                             components=[c.Text(text="Select a user to see details...")],
                         ),
                     ],
