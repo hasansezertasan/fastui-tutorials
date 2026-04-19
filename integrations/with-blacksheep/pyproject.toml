@@ -3,15 +3,9 @@ name = "with-blacksheep"
 version = "0.1.0"
 description = "FastUI integration with blacksheep"
 readme = "README.md"
-authors = [
-    { name = "hasansezertasan", email = "hasansezertasan@gmail.com" }
-]
+authors = [{ name = "hasansezertasan", email = "hasansezertasan@gmail.com" }]
 requires-python = ">=3.10"
-dependencies = [
-    "blacksheep",
-    "fastui",
-    "uvicorn",
-]
+dependencies = ["blacksheep", "fastui", "uvicorn"]
 
 [project.scripts]
 with-blacksheep = "with_blacksheep:main"

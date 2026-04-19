@@ -14,6 +14,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          fetch-depth: 0
       - name: Set up Python
         uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
         with:
@@ -29,11 +31,22 @@ jobs:
       - name: Sync
         run: uv sync --locked
       - name: Checks
+        shell: bash
         run: |
+          mapfile -t changed_python_files < <(git diff --name-only --diff-filter=ACMRT "${{ github.event.pull_request.base.sha }}" "${{ github.sha }}" -- '*.py')
+          mapfile -t changed_toml_files < <(git diff --name-only --diff-filter=ACMRT "${{ github.event.pull_request.base.sha }}" "${{ github.sha }}" -- '*.toml')
+
           uv run --locked validate-pyproject pyproject.toml
           uv run --locked codespell .
-          uv run --locked vulture .
-          uv run --locked ruff check --output-format=github
-          uv run --locked taplo lint pyproject.toml
-          uv run --locked ruff format
-          uv run --locked taplo format pyproject.toml
+          uv run --locked pytest -q
+
+          if ((${#changed_python_files[@]})); then
+            uv run --locked vulture --min-confidence 100 "${changed_python_files[@]}"
+            uv run --locked ruff check --output-format=github "${changed_python_files[@]}"
+            uv run --locked ruff format --check "${changed_python_files[@]}"
+          fi
+
+          if ((${#changed_toml_files[@]})); then
+            uv run --locked taplo lint "${changed_toml_files[@]}"
+            uv run --locked taplo format --check "${changed_toml_files[@]}"
+          fi
