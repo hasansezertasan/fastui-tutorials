@@ -24,3 +24,5 @@ Used Components:
   - [DevCard - Bootstrap 5 vCard & Portfolio Template for Software Developers](https://themes.3rdwavemedia.com/bootstrap-templates/resume/devcard-bootstrap-5-vcard-portfolio-template-for-software-developers/)
 
 ## Table Component
+
+- [x] [Table with ServerLoad Example](./examples/table_server_load/README.md)
