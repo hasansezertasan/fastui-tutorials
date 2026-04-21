@@ -19,6 +19,7 @@ Each example is a separate project and ordered by complexity.
 - [Random Number Generator](./examples/random_number_generator/)
 - [Simple Form: BMI Calculator](./examples/simple_form/)
 - [Basic Components Gallery](./examples/basic_component_gallery/)
+- [Table with ServerLoad Example](./examples/table_server_load/)
 - FastUI with other frameworks:
   - [Starlette Example](./examples/starlette_fastui/)
   - [Litestar Example](./examples/litestar_fastui/)
