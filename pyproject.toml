@@ -20,7 +20,7 @@ dependencies = [
 [dependency-groups]
 dev = [
   "mypy>=1.0.0",
-  "ruff==0.15.11",
+  "ruff==0.15.12",
   "codespell<3.0.0,>=2.3.0",
   "pre-commit<4.6.1,>=4.6.0",
   "validate-pyproject>=0.25",
