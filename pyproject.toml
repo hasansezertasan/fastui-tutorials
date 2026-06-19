@@ -27,7 +27,7 @@ dev = [
   "vulture>=2.16",
   "taplo>=0.9.3",
 ]
-test = ["pytest<9.1.1,>=9.1.0"]
+test = ["pytest<9.1.2,>=9.1.1"]
 
 
 [tool.ruff]
