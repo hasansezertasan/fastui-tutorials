@@ -1,11 +1,11 @@
 # Copyright (C) 2024 Hasan Sezer Taşan <hasansezertasan@gmail.com>
 from __future__ import annotations
 
-from typing import cast
+from typing import Any
 
 from fastui import AnyComponent, FastUI, prebuilt_html
 from fastui import components as c
-from robyn import Headers, Request, Response, Robyn, jsonify, status_codes
+from robyn import Headers, Request, Response, Robyn, status_codes
 
 
 def setup_fastui() -> None:
@@ -22,11 +22,9 @@ app = Robyn(__file__)
 
 
 @app.get("/api/")  # type: ignore[misc]
-def page(request: Request) -> Response:
-    return cast(
-        "Response",
-        jsonify(FastUI(root=[c.Heading(text="Hello World")]).model_dump()),
-    )
+def page(request: Request) -> list[Any]:
+    # Robyn serializes the returned list to JSON via orjson automatically.
+    return FastUI(root=[c.Heading(text="Hello World")]).model_dump()
 
 
 @app.get("/*path")  # type: ignore[misc]

@@ -3,18 +3,17 @@
 
 # ruff: noqa: S101
 
-import json
 from importlib.util import module_from_spec, spec_from_file_location
 from pathlib import Path
 from types import ModuleType
-from typing import TYPE_CHECKING, cast
+from typing import TYPE_CHECKING, Any, cast
 
 from robyn.robyn import HttpMethod
 
 if TYPE_CHECKING:
     from collections.abc import Callable
 
-    from robyn import Request, Response, Robyn
+    from robyn import Request, Robyn
 
 
 def load_example_module() -> ModuleType:
@@ -45,8 +44,9 @@ def test_robyn_app_registers_api_root_and_shell_routes() -> None:
     ]
 
     # Check for presence and relative ordering of critical routes
-    # API should come before root/wildcard to avoid being shadowed
-    expected_order = ["/api/", "/", "/*path"]
+    # API should come before root/wildcard to avoid being shadowed.
+    # Robyn normalizes the registered path, so "/api/" is stored as "/api".
+    expected_order = ["/api", "/", "/*path"]
     actual_order = [r for r in routes if r in expected_order]
 
     assert actual_order == expected_order
@@ -55,12 +55,11 @@ def test_robyn_app_registers_api_root_and_shell_routes() -> None:
 def test_robyn_api_route_returns_fastui_json() -> None:
     """Serialize the FastUI component tree for the API route."""
     module = load_example_module()
-    page = cast("Callable[[Request], Response]", module.page)
+    page = cast("Callable[[Request], list[Any]]", module.page)
 
-    response = page(cast("Request", object()))
-    description = cast("bytes", response.description)
-
-    assert json.loads(description) == [
+    # Robyn serializes the returned list to JSON itself, so the handler
+    # returns the component tree as plain Python objects.
+    assert page(cast("Request", object())) == [
         {
             "class_name": None,
             "html_id": None,
