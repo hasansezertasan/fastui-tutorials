@@ -1,7 +1,7 @@
 # Copyright (C) 2024 Hasan Sezer Taşan <hasansezertasan@gmail.com>
 """Tests for the BlackSheep FastUI integration."""
 
-# ruff: noqa: S101
+# ruff: file-ignore[assert]
 
 import asyncio
 import json

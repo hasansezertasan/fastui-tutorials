@@ -35,7 +35,7 @@ jobs:
           uv run --locked validate-pyproject pyproject.toml
           uv run --locked codespell .
           uv run --locked vulture .
-          uv run --locked ruff check --output-format=github
+          uv run --locked ruff check --no-fix --output-format=github
           uv run --locked taplo lint pyproject.toml
           uv run --locked ruff format --check
           uv run --locked taplo format --check pyproject.toml

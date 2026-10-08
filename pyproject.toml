@@ -41,36 +41,39 @@ fix = true
 select = ["ALL"]
 fixable = ["ALL"]
 ignore = [
-  "E501", # line too long, handled by ruff format
+  "line-too-long", # line too long, handled by ruff format
 ]
 preview = true
 
 [tool.ruff.lint.per-file-ignores]
-"components/navbar/src/navbar/__init__.py" = ["CPY001", "D104"]
+"components/navbar/src/navbar/__init__.py" = [
+  "missing-copyright-notice",
+  "undocumented-public-package",
+]
 "examples/**/*.py" = [
-  "A002",
-  "ARG001",
-  "CPY001",
-  "D100",
-  "D101",
-  "D102",
-  "D103",
-  "D104",
-  "DOC201",
-  "FAST003",
-  "INP001",
-  "RUF029",
-  "RUF067",
-  "S201",
-  "S311",
-  "T201",
+  "builtin-argument-shadowing",
+  "unused-function-argument",
+  "missing-copyright-notice",
+  "undocumented-public-module",
+  "undocumented-public-class",
+  "undocumented-public-method",
+  "undocumented-public-function",
+  "undocumented-public-package",
+  "docstring-missing-returns",
+  "fast-api-unused-path-parameter",
+  "implicit-namespace-package",
+  "unused-async",
+  "non-empty-init-module",
+  "flask-debug-true",
+  "suspicious-non-cryptographic-random-usage",
+  "print",
 ]
 "integrations/with-*/src/**/__init__.py" = [
-  "CPY001",
-  "D103",
-  "D104",
-  "RUF067",
-  "T201",
+  "missing-copyright-notice",
+  "undocumented-public-function",
+  "undocumented-public-package",
+  "non-empty-init-module",
+  "print",
 ]
 
 
