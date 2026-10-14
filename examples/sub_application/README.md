@@ -23,4 +23,4 @@ cd examples/sub_application
 uv run sub-application
 ```
 
-Then open `http://127.0.0.1:8000`.
+Then open `http://127.0.0.1:8000/foo/` or `http://127.0.0.1:8000/bar/`.

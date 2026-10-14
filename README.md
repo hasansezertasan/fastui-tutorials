@@ -41,33 +41,14 @@ Each example is a separate project and ordered by complexity.
 
 ## Tasks
 
-### `check`
+### `check`, `lint` and `format`
 
 ```bash
-mypy --strict .
-```
-
-### `lint`
-
-```bash
-codespell .
-ruff check . --fix --unsafe-fixes
-```
-
-### `format`
-
-```bash
-ruff format .
-```
-
-### `run`
-
-```bash
-uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+uvx prek run --all-files --show-diff-on-failure
 ```
 
 ### `test`
 
 ```bash
-pytest -v -s
+uv run --locked pytest -q
 ```
