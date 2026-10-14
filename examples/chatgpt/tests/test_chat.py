@@ -128,6 +128,24 @@ def test_user_prompt_is_markdown_escaped() -> None:
 
 
 @pytest.mark.usefixtures("_clean_state", "_canned_agent")
+def test_user_prompt_setext_syntax_is_escaped() -> None:
+    async def run() -> str:
+        last = ""
+        count = 0
+        async for chunk in ai_response_generator("hello\n==="):
+            last = chunk
+            count += 1
+            if len(display_history) == 1 or count > MAX_STREAM_CHUNKS:
+                break
+        return last
+
+    last = asyncio.run(run())
+    payload = json.loads(last.removeprefix("data: ").strip())
+    assert "\n===" not in payload[0]["text"]
+    assert "\\=\\=\\=" in payload[0]["text"]
+
+
+@pytest.mark.usefixtures("_clean_state", "_canned_agent")
 def test_display_history_is_bounded() -> None:
     async def run_once(prompt: str) -> None:
         last = ""
@@ -222,7 +240,7 @@ def test_reset_during_stream_does_not_restore_history() -> None:
     async def run() -> None:
         gen = ai_response_generator("hello")
         await anext(gen)
-        api_index(reset=True)
+        await api_index(reset=True)
         count = 0
         async for _ in gen:
             count += 1

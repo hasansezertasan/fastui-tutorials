@@ -109,7 +109,7 @@ class _HistoryEpoch:
 MAX_HISTORY_MESSAGES = 100
 MAX_HISTORY_EXCHANGES = 50
 
-_MARKDOWN_SPECIALS = re.compile(r"([\\`*_{}\[\]()#+\-.!|<>])")
+_MARKDOWN_SPECIALS = re.compile(r"([\\`*_{}\[\]()#+\-.!|<>~=])")
 
 
 def _escape_markdown(text: str) -> str:
@@ -154,11 +154,14 @@ async def _stream_agent_text(prompt: str) -> AsyncIterable[str]:
 
 
 @app.get("/api/", response_model=FastUI, response_model_exclude_none=True)
-def api_index(
+async def api_index(
     chat: str | None = None,
     *,
     reset: bool = False,
 ) -> list[AnyComponent]:
+    # Async so reset runs on the event loop: the epoch check and the history
+    # mutation in the streaming generator have no `await` between them, so a
+    # reset cannot interleave and be silently undone.
     if reset:
         message_history.clear()
         display_history.clear()
