@@ -12,10 +12,16 @@ This pattern is useful for loading additional details for a specific item when a
 
 ## How to run
 
-You can run this example using `uv`:
+### Change directory to the example
 
-```bash
-uv run main.py
+```shell
+cd examples/table_server_load
+```
+
+### Run the application
+
+```shell
+uv run table-server-load
 ```
 
 Then open your browser at [http://localhost:8000/](http://localhost:8000/).

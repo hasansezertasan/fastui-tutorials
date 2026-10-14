@@ -24,26 +24,13 @@ cd fastui-tutorials
 ### Change directory to the example
 
 ```shell
-cd examples/litestar-fastui
-```
-
-### Create a virtual environment
-
-- Create and activate a virtual environment:
-
-```shell
-python3 -m venv venv
-source venv/bin/activate
-```
-
-### Install the requirements
-
-```shell
-pip install -r 'requirements.txt'
+cd examples/litestar_fastui
 ```
 
 ### Run the application
 
 ```shell
-litestar --app-dir litestar-fastui run
+uv run litestar-fastui
 ```
+
+Then open `http://127.0.0.1:8000`.

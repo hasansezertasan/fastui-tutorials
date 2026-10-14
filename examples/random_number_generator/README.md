@@ -30,26 +30,13 @@ cd fastui-tutorials
 ### Change directory to the example
 
 ```shell
-cd examples/random-number-generator
-```
-
-### Create a virtual environment
-
-- Create and activate a virtual environment:
-
-```shell
-python3 -m venv venv
-source venv/bin/activate
-```
-
-### Install the requirements
-
-```shell
-pip install -r 'requirements.txt'
+cd examples/random_number_generator
 ```
 
 ### Run the application
 
 ```shell
-uvicorn main:app
+uv run random-number-generator
 ```
+
+Then open `http://127.0.0.1:8000`.

@@ -18,26 +18,13 @@ cd fastui-tutorials
 ### Change directory to the example
 
 ```shell
-cd examples/flask-fastui
-```
-
-### Create a virtual environment
-
-- Create and activate a virtual environment:
-
-```shell
-python3 -m venv venv
-source venv/bin/activate
-```
-
-### Install the requirements
-
-```shell
-pip install -r 'requirements.txt'
+cd examples/flask_fastui
 ```
 
 ### Run the application
 
 ```shell
-python app.py
+uv run flask-fastui
 ```
+
+Then open `http://127.0.0.1:8000`.
