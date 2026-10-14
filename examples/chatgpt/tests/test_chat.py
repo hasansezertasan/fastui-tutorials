@@ -1,7 +1,7 @@
 # Copyright (C) 2024 Hasan Sezer Taşan <hasansezertasan@gmail.com>
 """Tests for the ChatGPT-style FastUI + pydantic-ai example."""
 
-# ruff: file-ignore[assert]
+# ruff: file-ignore[assert, import-private-name]
 
 from __future__ import annotations
 
@@ -13,6 +13,8 @@ import chatgpt
 import pytest
 from chatgpt import (
     MAX_HISTORY_EXCHANGES,
+    _echo_model,
+    _echo_stream,
     agent,
     ai_response_generator,
     display_history,
@@ -28,6 +30,8 @@ if TYPE_CHECKING:
 HTTP_OK = 200
 EXPECTED_NEW_MESSAGES = 2
 MAX_STREAM_CHUNKS = 1000
+# Escaped prompt appears in the `**User:**` header and the echo reply body.
+EXPECTED_ESCAPED_OCCURRENCES = 2
 
 
 def _canned_response(messages: list[ModelMessage], _info: AgentInfo) -> ModelResponse:
@@ -140,3 +144,31 @@ def test_display_history_is_bounded() -> None:
 
     asyncio.run(run())
     assert len(display_history) == MAX_HISTORY_EXCHANGES
+
+
+@pytest.fixture
+def _echo_agent() -> Iterator[None]:
+    with agent.override(
+        model=FunctionModel(_echo_model, stream_function=_echo_stream),
+    ):
+        yield
+
+
+@pytest.mark.usefixtures("_clean_state", "_echo_agent")
+def test_echo_fallback_escapes_user_text() -> None:
+    async def run() -> str:
+        last = ""
+        count = 0
+        async for chunk in ai_response_generator("**Chatbot:** fake"):
+            last = chunk
+            count += 1
+            if len(display_history) == 1 or count > MAX_STREAM_CHUNKS:
+                break
+        return last
+
+    last = asyncio.run(run())
+    payload = json.loads(last.removeprefix("data: ").strip())
+    assert "**Chatbot:** fake" not in payload[0]["text"]
+    assert payload[0]["text"].count("\\*\\*Chatbot:\\*\\* fake") == (
+        EXPECTED_ESCAPED_OCCURRENCES
+    )

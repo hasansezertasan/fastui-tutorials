@@ -40,7 +40,7 @@ def _echo_model(messages: list[ModelMessage], _info: AgentInfo) -> ModelResponse
         if user_text:
             break
     text = (
-        f"Echo: {user_text}\n\n"
+        f"Echo: {_escape_markdown(user_text)}\n\n"
         "Set `OPENAI_API_KEY` (and optionally `PYDANTIC_AI_MODEL`) "
         "to get real ChatGPT-style replies via pydantic-ai."
     )
