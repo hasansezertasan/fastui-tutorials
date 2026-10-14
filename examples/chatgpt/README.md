@@ -53,7 +53,7 @@ cd examples/chatgpt
 ### Run the application (offline echo mode)
 
 ```shell
-uv run chatgpt
+uv run --package chatgpt chatgpt
 ```
 
 Then open `http://127.0.0.1:8000`.
@@ -63,7 +63,7 @@ Then open `http://127.0.0.1:8000`.
 ```shell
 export OPENAI_API_KEY="..."
 export PYDANTIC_AI_MODEL="openai:gpt-4o-mini"  # optional, this is the default
-uv run chatgpt
+uv run --package chatgpt chatgpt
 ```
 
 Any pydantic-ai model string works, e.g. `anthropic:claude-sonnet-4-6`

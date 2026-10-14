@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import asyncio
+import logging
 import os
 import re
 from typing import TYPE_CHECKING
@@ -25,6 +26,8 @@ if TYPE_CHECKING:
     from collections.abc import AsyncIterable
 
 FastUI.model_rebuild()
+
+logger = logging.getLogger(__name__)
 
 app = FastAPI()
 
@@ -95,6 +98,13 @@ class ChatForm(BaseModel):
 message_history: list[ModelMessage] = []
 display_history: list[MessageHistoryModel] = []
 
+
+# Epoch counter: bumped on reset so an in-flight stream that finishes
+# after a reset does not restore cleared history.
+class _HistoryEpoch:
+    value = 0
+
+
 # Bounds for the in-memory demo history (messages alternate user/assistant).
 MAX_HISTORY_MESSAGES = 100
 MAX_HISTORY_EXCHANGES = 50
@@ -128,10 +138,17 @@ async def _stream_agent_text(prompt: str) -> AsyncIterable[str]:
     # Same pattern as the official pydantic-ai chat-app docs: yielding inside
     # `run_stream` is how token streaming works; the context manager ends
     # normally once the stream is exhausted.
+    generation = _HistoryEpoch.value
     async with agent.run_stream(prompt, message_history=message_history) as result:
         async for chunk in result.stream_text(delta=True):
             yield chunk  # ruff: ignore[yield-in-context-manager-in-async-generator] - token streaming per pydantic-ai docs
-        # Persist pydantic-ai history for multi-turn context.
+        # Persist pydantic-ai history for multi-turn context. `stream_text`
+        # records the final response on completion, so `new_messages()` holds
+        # the user request plus the assistant reply (covered by
+        # `test_ai_response_generator_streams_reply`).
+        if generation != _HistoryEpoch.value:
+            # A reset cleared history mid-stream: do not restore it.
+            return
         message_history.extend(result.new_messages())
         _trim_histories()
 
@@ -145,6 +162,7 @@ def api_index(
     if reset:
         message_history.clear()
         display_history.clear()
+        _HistoryEpoch.value += 1
 
     sse_path = "/api/sse"
     if chat:
@@ -220,21 +238,32 @@ async def empty_response() -> AsyncIterable[str]:
 async def ai_response_generator(prompt: str) -> AsyncIterable[str]:
     """Stream the agent reply as Markdown server-sent events.
 
-    The agent's fallback model converts API failures into echo replies,
-    so this generator does not need its own error handling.
+    `FallbackModel` converts failures while opening the provider stream into
+    echo replies, but mid-stream failures propagate, so they are caught here
+    and surfaced as a terminal error event. A failed exchange is shown in the
+    display history but intentionally left out of `message_history` to keep
+    the LLM context clean.
 
     Yields:
         One server-sent event per streamed chunk, then the last event forever.
     """
+    generation = _HistoryEpoch.value
     output = f"**User:** {_escape_markdown(prompt)}\n\n**Chatbot:** "
     msg = _sse_message(output)
-    async for chunk in _stream_agent_text(prompt):
-        output += chunk
+    try:
+        async for chunk in _stream_agent_text(prompt):
+            output += chunk
+            msg = _sse_message(output)
+            yield msg
+    except Exception:
+        logger.exception("Chatbot stream failed mid-response")
+        output += "\n\n⚠️ Reply interrupted by a provider error; please retry."
         msg = _sse_message(output)
         yield msg
 
-    display_history.append(MessageHistoryModel(message=output))
-    _trim_histories()
+    if generation == _HistoryEpoch.value:
+        display_history.append(MessageHistoryModel(message=output))
+        _trim_histories()
     # Avoid the browser reconnecting.
     while True:
         yield msg

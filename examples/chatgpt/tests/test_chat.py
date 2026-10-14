@@ -17,6 +17,7 @@ from chatgpt import (
     _echo_stream,
     agent,
     ai_response_generator,
+    api_index,
     display_history,
     message_history,
 )
@@ -172,3 +173,65 @@ def test_echo_fallback_escapes_user_text() -> None:
     assert payload[0]["text"].count("\\*\\*Chatbot:\\*\\* fake") == (
         EXPECTED_ESCAPED_OCCURRENCES
     )
+
+
+async def _failing_stream(
+    messages: list[ModelMessage],
+    _info: AgentInfo,
+) -> AsyncIterable[str]:
+    """Yield one chunk then fail to simulate a mid-stream provider error.
+
+    Yields:
+        A single partial chunk before raising.
+
+    Raises:
+        RuntimeError: Simulated mid-stream provider failure.
+    """
+    _ = messages
+    yield "partial reply "
+    error_message = "boom"
+    raise RuntimeError(error_message)
+
+
+@pytest.mark.usefixtures("_clean_state")
+def test_mid_stream_failure_emits_error_event() -> None:
+    async def run() -> str:
+        last = ""
+        count = 0
+        with agent.override(
+            model=FunctionModel(_canned_response, stream_function=_failing_stream),
+        ):
+            async for chunk in ai_response_generator("hello"):
+                last = chunk
+                count += 1
+                if len(display_history) == 1 or count > MAX_STREAM_CHUNKS:
+                    break
+            return last
+
+    last = asyncio.run(run())
+    payload = json.loads(last.removeprefix("data: ").strip())
+    assert payload[0]["text"].startswith("**User:** hello")
+    assert "interrupted by a provider error" in payload[0]["text"]
+    assert len(display_history) == 1
+    # Failed exchanges stay out of the LLM context.
+    assert message_history == []
+
+
+@pytest.mark.usefixtures("_clean_state", "_canned_agent")
+def test_reset_during_stream_does_not_restore_history() -> None:
+    async def run() -> None:
+        gen = ai_response_generator("hello")
+        await anext(gen)
+        api_index(reset=True)
+        count = 0
+        async for _ in gen:
+            count += 1
+            if count > MAX_STREAM_CHUNKS:
+                break
+            if count > 2:  # ruff: ignore[magic-value-comparison] - drain past the in-flight append point
+                break
+        await gen.aclose()
+
+    asyncio.run(run())
+    assert message_history == []
+    assert display_history == []
