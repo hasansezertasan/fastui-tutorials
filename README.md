@@ -20,10 +20,11 @@ Each example is a separate project and ordered by complexity.
 - [Simple Form: BMI Calculator](./examples/simple_form/)
 - [Basic Components Gallery](./examples/basic_component_gallery/)
 - [Table with ServerLoad Example](./examples/table_server_load/)
+- [Personal Portfolio](./examples/personal_portfolio/)
 - FastUI with other frameworks:
   - [Starlette Example](./examples/starlette_fastui/)
   - [Litestar Example](./examples/litestar_fastui/)
-  - [BlackSheep Example](./integrations/with-blacksheep/)
+  - [BlackSheep Example](./examples/with-blacksheep/)
   - [Flask Example](./examples/flask_fastui/)
   - [Robyn Example](./examples/robyn_fastui/)
 - FAQ:
@@ -40,33 +41,14 @@ Each example is a separate project and ordered by complexity.
 
 ## Tasks
 
-### `check`
+### `check`, `lint` and `format`
 
 ```bash
-mypy --strict .
-```
-
-### `lint`
-
-```bash
-codespell .
-ruff check . --fix --unsafe-fixes
-```
-
-### `format`
-
-```bash
-ruff format .
-```
-
-### `run`
-
-```bash
-uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+uvx prek run --all-files --show-diff-on-failure
 ```
 
 ### `test`
 
 ```bash
-pytest -v -s
+uv run --locked pytest -q
 ```

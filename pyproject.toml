@@ -1,32 +1,10 @@
 [project]
 name = "fastui-tutorials"
-description = "I'm exploring the capabilities of FastUI."
-readme = "README.md"
 version = "0.1.0"
-license = { text = "MIT" }
-authors = [{ name = "Hasan Sezer Taşan", email = "hasansezertasan@gmail.com" }]
-maintainers = [
-  { name = "Hasan Sezer Taşan", email = "hasansezertasan@gmail.com" },
-]
-requires-python = "<4.0,>=3.10"
-dependencies = [
-  "fastui<1.0.0,>=0.6.0",
-  "fastapi[all]<1.0.0,>=0.110.0",
-  "flask<4.0.0,>=3.0.3",
-  "litestar<3.0.0,>=2.8.3",
-  "robyn<1.0.0,>=0.54.4",
-]
+requires-python = ">=3.10"
+
 
 [dependency-groups]
-dev = [
-  "mypy>=1.0.0",
-  "ruff==0.16.6",
-  "codespell<3.0.0,>=2.3.0",
-  "pre-commit<4.6.3,>=4.6.2",
-  "validate-pyproject>=0.25",
-  "vulture>=2.16",
-  "taplo>=0.9.3",
-]
 test = ["pytest<9.1.2,>=9.1.1"]
 
 
@@ -37,7 +15,6 @@ fix = true
 
 
 [tool.ruff.lint]
-# Run `ruff linter` command to see all available linters and their descriptions
 select = ["ALL"]
 fixable = ["ALL"]
 ignore = [
@@ -45,11 +22,8 @@ ignore = [
 ]
 preview = true
 
+
 [tool.ruff.lint.per-file-ignores]
-"components/navbar/src/navbar/__init__.py" = [
-  "missing-copyright-notice",
-  "undocumented-public-package",
-]
 "examples/**/*.py" = [
   "builtin-argument-shadowing",
   "unused-function-argument",
@@ -68,19 +42,6 @@ preview = true
   "suspicious-non-cryptographic-random-usage",
   "print",
 ]
-"integrations/with-*/src/**/__init__.py" = [
-  "missing-copyright-notice",
-  "undocumented-public-function",
-  "undocumented-public-package",
-  "non-empty-init-module",
-  "print",
-]
-
-
-[tool.ruff.lint.flake8-copyright]
-author = "Hasan Sezer Taşan <hasansezertasan@gmail.com>"
-
-
 [tool.ruff.lint.pydocstyle]
 convention = "google"
 
@@ -94,30 +55,45 @@ docstring-code-line-length = "dynamic"
 skip = 'uv.lock'
 count = true
 
+
 [tool.vulture]
 exclude = [".venv"]
 ignore_names = ["path", "request"]
 min_confidence = 100
 
+
 [tool.uv.workspace]
 members = [
-  "integrations/with-litestar",
-  "integrations/with-starlette",
-  "integrations/with-blacksheep",
-  "integrations/with-robyn",
-  "integrations/with-django",
-  "integrations/with-flask",
+  "examples/basic_component_gallery",
+  "examples/component-navbar",
+  "examples/dynamic_page_titles",
+  "examples/flask_fastui",
+  "examples/hello_world",
+  "examples/litestar_fastui",
+  "examples/navigation",
+  "examples/personal_portfolio",
+  "examples/random_number_generator",
+  "examples/robyn_fastui",
   "examples/simple_form",
-  "integrations/with-quart",
-  "components/navbar",
-  "integrations/with-fastapi-sub-application",
-  "integrations/with-tornado",
-  "integrations/with-pyramid",
-  "integrations/with-bottle",
-  "integrations/with-sanic",
-  "integrations/with-hug",
-  "integrations/with-masonite",
-  "integrations/with-emmet",
-  "integrations/with-falcon",
-  "integrations/with-fastapi",
+  "examples/simple_layout",
+  "examples/starlette_fastui",
+  "examples/sub_application",
+  "examples/table_server_load",
+  "examples/with-blacksheep",
+  "examples/with-bottle",
+  "examples/with-django",
+  "examples/with-emmet",
+  "examples/with-falcon",
+  "examples/with-fastapi",
+  "examples/with-fastapi-sub-application",
+  "examples/with-flask",
+  "examples/with-hug",
+  "examples/with-litestar",
+  "examples/with-masonite",
+  "examples/with-pyramid",
+  "examples/with-quart",
+  "examples/with-robyn",
+  "examples/with-sanic",
+  "examples/with-starlette",
+  "examples/with-tornado",
 ]

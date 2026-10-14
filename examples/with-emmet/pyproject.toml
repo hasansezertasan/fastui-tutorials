@@ -1,0 +1,15 @@
+[project]
+name = "with-emmet"
+version = "0.1.0"
+description = "FastUI integration with emmet"
+readme = "README.md"
+authors = [{ name = "hasansezertasan", email = "hasansezertasan@gmail.com" }]
+requires-python = ">=3.10"
+dependencies = []
+
+[project.scripts]
+with-emmet = "with_emmet:main"
+
+[build-system]
+requires = ["uv_build>=0.12.10,<0.13.0"]
+build-backend = "uv_build"

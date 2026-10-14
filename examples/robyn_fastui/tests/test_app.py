@@ -3,40 +3,19 @@
 
 # ruff: file-ignore[assert]
 
-from importlib.util import module_from_spec, spec_from_file_location
-from pathlib import Path
-from types import ModuleType
 from typing import TYPE_CHECKING, Any, cast
 
 from robyn.robyn import HttpMethod
+from robyn_fastui import app, page
 
 if TYPE_CHECKING:
     from collections.abc import Callable
 
-    from robyn import Request, Robyn
-
-
-def load_example_module() -> ModuleType:
-    """Load the example module from its file path.
-
-    Raises:
-        ImportError: If the example module spec cannot be loaded.
-    """
-    module_path = Path(__file__).parents[1] / "app.py"
-    spec = spec_from_file_location("robyn_fastui_app", module_path)
-    if spec is None or spec.loader is None:
-        msg = f"Unable to load module from {module_path}"
-        raise ImportError(msg)
-
-    module = module_from_spec(spec)
-    spec.loader.exec_module(module)
-    return module
+    from robyn import Request
 
 
 def test_robyn_app_registers_api_root_and_shell_routes() -> None:
     """Register API, root, and wildcard shell routes in matching order."""
-    module = load_example_module()
-    app = cast("Robyn", module.app)
     routes = [
         route.route
         for route in app.router.get_routes()
@@ -54,12 +33,11 @@ def test_robyn_app_registers_api_root_and_shell_routes() -> None:
 
 def test_robyn_api_route_returns_fastui_json() -> None:
     """Serialize the FastUI component tree for the API route."""
-    module = load_example_module()
-    page = cast("Callable[[Request], list[Any]]", module.page)
+    handler = cast("Callable[[Request], list[Any]]", page)
 
     # Robyn serializes the returned list to JSON itself, so the handler
     # returns the component tree as plain Python objects.
-    assert page(cast("Request", object())) == [
+    assert handler(cast("Request", object())) == [
         {
             "class_name": None,
             "html_id": None,

@@ -32,11 +32,5 @@ jobs:
         run: uv sync --locked --all-groups --all-packages
       - name: Checks
         run: |
-          uv run --locked validate-pyproject pyproject.toml
-          uv run --locked codespell .
-          uv run --locked vulture .
-          uv run --locked ruff check --no-fix --output-format=github
-          uv run --locked taplo lint pyproject.toml
-          uv run --locked ruff format --check
-          uv run --locked taplo format --check pyproject.toml
+          uvx prek run --all-files --show-diff-on-failure
           uv run --locked pytest -q

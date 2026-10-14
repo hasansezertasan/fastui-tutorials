@@ -18,26 +18,13 @@ cd fastui-tutorials
 ### Change directory to the example
 
 ```shell
-cd examples/hello-world
-```
-
-### Create a virtual environment
-
-- Create and activate a virtual environment:
-
-```shell
-python3 -m venv venv
-source venv/bin/activate
-```
-
-### Install the requirements
-
-```shell
-pip install -r 'requirements.txt'
+cd examples/hello_world
 ```
 
 ### Run the application
 
 ```shell
-uvicorn main:app
+uv run hello-world
 ```
+
+Then open `http://127.0.0.1:8000`.
