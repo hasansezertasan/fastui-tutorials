@@ -18,10 +18,10 @@ app = FastAPI()
 
 class BMIForm(BaseModel):
     weight: float = Field(..., title="Weight (kg)")
-    height: float = Field(..., title="Height (m)")
+    height: float = Field(..., gt=0, title="Height (m)")
 
     def calculate_bmi(self) -> float:
-        return self.weight / (self.height / 100) ** 2
+        return self.weight / self.height**2
 
 
 @app.get("/api/", response_model=FastUI, response_model_exclude_none=True)
