@@ -20,6 +20,7 @@ Each example is a separate project and ordered by complexity.
 - [Simple Form: BMI Calculator](./examples/simple_form/)
 - [Basic Components Gallery](./examples/basic_component_gallery/)
 - [Table with ServerLoad Example](./examples/table_server_load/)
+- [ChatGPT-style Chatbot (pydantic-ai)](./examples/chatgpt/)
 - [Personal Portfolio](./examples/personal_portfolio/)
 - FastUI with other frameworks:
   - [Starlette Example](./examples/starlette_fastui/)
