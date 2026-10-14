@@ -40,7 +40,7 @@ def root(request: Request) -> Response:
 
 def main() -> None:
     """Run the example with Robyn."""
-    app.start()
+    app.start(port=8000)
 
 
 if __name__ == "__main__":

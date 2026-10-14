@@ -24,7 +24,7 @@ def root() -> str:
 
 def main() -> None:
     """Run the example with Flask."""
-    app.run(debug=True)
+    app.run(debug=True, port=8000)
 
 
 if __name__ == "__main__":
