@@ -3,9 +3,7 @@ name = "with-starlette"
 version = "0.1.0"
 description = "FastUI integration with starlette"
 readme = "README.md"
-authors = [
-    { name = "hasansezertasan", email = "hasansezertasan@gmail.com" }
-]
+authors = [{ name = "hasansezertasan", email = "hasansezertasan@gmail.com" }]
 requires-python = ">=3.10"
 dependencies = ["starlette"]
 

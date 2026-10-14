@@ -3,9 +3,7 @@ name = "with-fastapi-sub-application"
 version = "0.1.0"
 description = "FastUI integration with fastapi-sub-application"
 readme = "README.md"
-authors = [
-    { name = "hasansezertasan", email = "hasansezertasan@gmail.com" }
-]
+authors = [{ name = "hasansezertasan", email = "hasansezertasan@gmail.com" }]
 requires-python = ">=3.10"
 dependencies = []
 

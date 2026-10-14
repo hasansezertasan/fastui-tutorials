@@ -46,3 +46,28 @@ repos:
       - id: codespell
         additional_dependencies:
           - tomli
+  - repo: https://github.com/jendrikseipp/vulture
+    rev: v2.16
+    hooks:
+      - id: vulture
+        args: ["."]
+  - repo: local
+    hooks:
+      - id: taplo-lint
+        name: Taplo Lint
+        entry: taplo lint
+        language: python
+        additional_dependencies: ["taplo>=0.9.3"]
+        types: [toml]
+      - id: taplo-format
+        name: Taplo Format
+        entry: taplo format
+        language: python
+        additional_dependencies: ["taplo>=0.9.3"]
+        types: [toml]
+      - id: validate-pyproject
+        name: Validate Pyproject
+        entry: validate-pyproject
+        language: python
+        additional_dependencies: ["validate-pyproject>=0.25", "tomli"]
+        files: pyproject\.toml$
