@@ -1,0 +1,15 @@
+[project]
+name = "navigation"
+version = "0.1.0"
+description = "FastUI example: navigation"
+readme = "README.md"
+authors = [{ name = "hasansezertasan", email = "hasansezertasan@gmail.com" }]
+requires-python = ">=3.10"
+dependencies = ["fastapi", "fastui", "uvicorn"]
+
+[project.scripts]
+navigation = "navigation:main"
+
+[build-system]
+requires = ["uv_build>=0.12.10,<0.13.0"]
+build-backend = "uv_build"

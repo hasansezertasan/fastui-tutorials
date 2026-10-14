@@ -12,9 +12,22 @@ resolution-markers = [
 
 [manifest]
 members = [
+    "basic-component-gallery",
+    "dynamic-page-titles",
     "fastui-tutorials",
+    "flask-fastui",
+    "hello-world",
+    "litestar-fastui",
     "navbar",
+    "navigation",
+    "personal-portfolio",
+    "random-number-generator",
+    "robyn-fastui",
     "simple-form",
+    "simple-layout",
+    "starlette-fastui",
+    "sub-application",
+    "table-server-load",
     "with-blacksheep",
     "with-bottle",
     "with-django",
@@ -167,6 +180,23 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/a5/ae/136395dfbfe00dfc94da3f3e136d0b13f394cba8f4841120e34226265780/async_timeout-5.0.1.tar.gz", hash = "sha256:d9321a7a3d5a6a5e187e824d2fa0793ce379a202935782d555d6e9d2735677d3", size = 9274, upload-time = "2024-11-06T16:41:39.6Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/fe/ba/e2081de779ca30d473f21f5b30e0e737c438205440784c7dfc81efc2b029/async_timeout-5.0.1-py3-none-any.whl", hash = "sha256:39e3809566ff85354557ec2398b55e096c8364bacac9405a7a1fa429e77fe76c", size = 6233, upload-time = "2024-11-06T16:41:37.9Z" },
+]
+
+[[package]]
+name = "basic-component-gallery"
+version = "0.1.0"
+source = { editable = "examples/basic_component_gallery" }
+dependencies = [
+    { name = "fastapi" },
+    { name = "fastui" },
+    { name = "uvicorn" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "fastapi" },
+    { name = "fastui" },
+    { name = "uvicorn" },
 ]
 
 [[package]]
@@ -595,6 +625,23 @@ wheels = [
 ]
 
 [[package]]
+name = "dynamic-page-titles"
+version = "0.1.0"
+source = { editable = "examples/dynamic_page_titles" }
+dependencies = [
+    { name = "fastapi" },
+    { name = "fastui" },
+    { name = "uvicorn" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "fastapi" },
+    { name = "fastui" },
+    { name = "uvicorn" },
+]
+
+[[package]]
 name = "email-validator"
 version = "2.3.0"
 source = { registry = "https://pypi.org/simple" }
@@ -992,6 +1039,21 @@ wheels = [
 ]
 
 [[package]]
+name = "flask-fastui"
+version = "0.1.0"
+source = { editable = "examples/flask_fastui" }
+dependencies = [
+    { name = "fastui" },
+    { name = "flask" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "fastui" },
+    { name = "flask" },
+]
+
+[[package]]
 name = "googleapis-common-protos"
 version = "1.75.5"
 source = { registry = "https://pypi.org/simple" }
@@ -1044,6 +1106,23 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/e7/85/7c366e69d84c17bb778fe41419e1fbcce3033d5b7ce29bbffff0a98b859f/h2-4.4.1.tar.gz", hash = "sha256:4e866ffb1a869ae14dd9b5e6beb5c24a13da0495ad72b65925ded182521c1516", size = 2157281, upload-time = "2026-08-03T11:45:09.509Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/7e/22/e85faf23bd72a92d1921e37d674ca56eb298a3c8be31fdecef0ff2b3aaac/h2-4.4.1-py3-none-any.whl", hash = "sha256:0e25f1462b23c9cb82d9eb02e28bc706dac2a68cb457c6a0d74d63c8a2a5d0e6", size = 62636, upload-time = "2026-08-03T11:44:59.164Z" },
+]
+
+[[package]]
+name = "hello-world"
+version = "0.1.0"
+source = { editable = "examples/hello_world" }
+dependencies = [
+    { name = "fastapi" },
+    { name = "fastui" },
+    { name = "uvicorn" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "fastapi" },
+    { name = "fastui" },
+    { name = "uvicorn" },
 ]
 
 [[package]]
@@ -1484,6 +1563,23 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/42/f6/33619a1562c6732dab211a967b1e7af3285de29d655c0b37b3f379aa2700/litestar-2.24.0.tar.gz", hash = "sha256:8f4b137cb115554b9fbc12bd01d398d5bb40ba85f2d333dd73f4b747308bbb46", size = 383070, upload-time = "2026-06-11T11:27:00.519Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/c8/ce/4697b547790f23d2fcc37a928d48c38140cf86360e4041ca8177e3367c14/litestar-2.24.0-py3-none-any.whl", hash = "sha256:0ef13630173ea147847363f03f0459877ab14a572e68b2af7a25796055513a31", size = 581807, upload-time = "2026-06-11T11:26:58.509Z" },
+]
+
+[[package]]
+name = "litestar-fastui"
+version = "0.1.0"
+source = { editable = "examples/litestar_fastui" }
+dependencies = [
+    { name = "fastui" },
+    { name = "litestar" },
+    { name = "uvicorn" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "fastui" },
+    { name = "litestar" },
+    { name = "uvicorn" },
 ]
 
 [[package]]
@@ -2064,6 +2160,23 @@ version = "0.1.0"
 source = { editable = "components/navbar" }
 
 [[package]]
+name = "navigation"
+version = "0.1.0"
+source = { editable = "examples/navigation" }
+dependencies = [
+    { name = "fastapi" },
+    { name = "fastui" },
+    { name = "uvicorn" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "fastapi" },
+    { name = "fastui" },
+    { name = "uvicorn" },
+]
+
+[[package]]
 name = "nodeenv"
 version = "1.11.0"
 source = { registry = "https://pypi.org/simple" }
@@ -2266,6 +2379,23 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/5a/82/42f767fc1c1143d6fd36efb827202a2d997a375e160a71eb2888a925aac1/pathspec-1.1.1.tar.gz", hash = "sha256:17db5ecd524104a120e173814c90367a96a98d07c45b2e10c2f3919fff91bf5a", size = 135180, upload-time = "2026-04-27T01:46:08.907Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/f1/d9/7fb5aa316bc299258e68c73ba3bddbc499654a07f151cba08f6153988714/pathspec-1.1.1-py3-none-any.whl", hash = "sha256:a00ce642f577bf7f473932318056212bc4f8bfdf53128c78bbd5af0b9b20b189", size = 57328, upload-time = "2026-04-27T01:46:07.06Z" },
+]
+
+[[package]]
+name = "personal-portfolio"
+version = "0.1.0"
+source = { editable = "examples/personal_portfolio" }
+dependencies = [
+    { name = "fastapi" },
+    { name = "fastui" },
+    { name = "uvicorn" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "fastapi" },
+    { name = "fastui" },
+    { name = "uvicorn" },
 ]
 
 [[package]]
@@ -2807,6 +2937,23 @@ wheels = [
 ]
 
 [[package]]
+name = "random-number-generator"
+version = "0.1.0"
+source = { editable = "examples/random_number_generator" }
+dependencies = [
+    { name = "fastapi" },
+    { name = "fastui" },
+    { name = "uvicorn" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "fastapi" },
+    { name = "fastui" },
+    { name = "uvicorn" },
+]
+
+[[package]]
 name = "requests"
 version = "2.34.2"
 source = { registry = "https://pypi.org/simple" }
@@ -3065,6 +3212,21 @@ wheels = [
 ]
 
 [[package]]
+name = "robyn-fastui"
+version = "0.1.0"
+source = { editable = "examples/robyn_fastui" }
+dependencies = [
+    { name = "fastui" },
+    { name = "robyn" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "fastui" },
+    { name = "robyn" },
+]
+
+[[package]]
 name = "rodi"
 version = "2.0.8"
 source = { registry = "https://pypi.org/simple" }
@@ -3136,6 +3298,37 @@ wheels = [
 name = "simple-form"
 version = "0.1.0"
 source = { editable = "examples/simple_form" }
+dependencies = [
+    { name = "fastapi" },
+    { name = "fastui" },
+    { name = "pydantic" },
+    { name = "uvicorn" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "fastapi" },
+    { name = "fastui" },
+    { name = "pydantic" },
+    { name = "uvicorn" },
+]
+
+[[package]]
+name = "simple-layout"
+version = "0.1.0"
+source = { editable = "examples/simple_layout" }
+dependencies = [
+    { name = "fastapi" },
+    { name = "fastui" },
+    { name = "uvicorn" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "fastapi" },
+    { name = "fastui" },
+    { name = "uvicorn" },
+]
 
 [[package]]
 name = "sniffio"
@@ -3166,6 +3359,59 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/7b/2b/3850dc6bf7ef71b088962eba31dafc6cffd2f96e577ebb0bb316df96da3e/starlette-1.7.0.tar.gz", hash = "sha256:c79f74ea63cff761804fbbfb182f1e0b440c2d07b164d24700c5a1bab5d6ff5d", size = 2736246, upload-time = "2026-09-23T07:30:26.35Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/4e/d6/1ec1b290f9e0fb067899b61e1d37a30c923068bad260b216dbe37a7d2967/starlette-1.7.0-py3-none-any.whl", hash = "sha256:67f8e99895493dd2911a03f11314af6ceebeae4e704bb9f43dfc6a9db151c93e", size = 78980, upload-time = "2026-09-23T07:30:24.567Z" },
+]
+
+[[package]]
+name = "starlette-fastui"
+version = "0.1.0"
+source = { editable = "examples/starlette_fastui" }
+dependencies = [
+    { name = "fastui" },
+    { name = "starlette" },
+    { name = "uvicorn" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "fastui" },
+    { name = "starlette" },
+    { name = "uvicorn" },
+]
+
+[[package]]
+name = "sub-application"
+version = "0.1.0"
+source = { editable = "examples/sub_application" }
+dependencies = [
+    { name = "fastapi" },
+    { name = "fastui" },
+    { name = "uvicorn" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "fastapi" },
+    { name = "fastui" },
+    { name = "uvicorn" },
+]
+
+[[package]]
+name = "table-server-load"
+version = "0.1.0"
+source = { editable = "examples/table_server_load" }
+dependencies = [
+    { name = "fastapi" },
+    { name = "fastui" },
+    { name = "pydantic" },
+    { name = "uvicorn" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "fastapi" },
+    { name = "fastui" },
+    { name = "pydantic" },
+    { name = "uvicorn" },
 ]
 
 [[package]]
@@ -3858,7 +4104,7 @@ wheels = [
 [[package]]
 name = "with-blacksheep"
 version = "0.1.0"
-source = { editable = "integrations/with-blacksheep" }
+source = { editable = "examples/with-blacksheep" }
 dependencies = [
     { name = "blacksheep" },
     { name = "fastui" },
@@ -3875,12 +4121,12 @@ requires-dist = [
 [[package]]
 name = "with-bottle"
 version = "0.1.0"
-source = { editable = "integrations/with-bottle" }
+source = { editable = "examples/with-bottle" }
 
 [[package]]
 name = "with-django"
 version = "0.1.0"
-source = { editable = "integrations/with-django" }
+source = { editable = "examples/with-django" }
 dependencies = [
     { name = "nanodjango" },
 ]
@@ -3891,27 +4137,27 @@ requires-dist = [{ name = "nanodjango" }]
 [[package]]
 name = "with-emmet"
 version = "0.1.0"
-source = { editable = "integrations/with-emmet" }
+source = { editable = "examples/with-emmet" }
 
 [[package]]
 name = "with-falcon"
 version = "0.1.0"
-source = { editable = "integrations/with-falcon" }
+source = { editable = "examples/with-falcon" }
 
 [[package]]
 name = "with-fastapi"
 version = "0.1.0"
-source = { editable = "integrations/with-fastapi" }
+source = { editable = "examples/with-fastapi" }
 
 [[package]]
 name = "with-fastapi-sub-application"
 version = "0.1.0"
-source = { editable = "integrations/with-fastapi-sub-application" }
+source = { editable = "examples/with-fastapi-sub-application" }
 
 [[package]]
 name = "with-flask"
 version = "0.1.0"
-source = { editable = "integrations/with-flask" }
+source = { editable = "examples/with-flask" }
 dependencies = [
     { name = "flask" },
 ]
@@ -3922,12 +4168,12 @@ requires-dist = [{ name = "flask" }]
 [[package]]
 name = "with-hug"
 version = "0.1.0"
-source = { editable = "integrations/with-hug" }
+source = { editable = "examples/with-hug" }
 
 [[package]]
 name = "with-litestar"
 version = "0.1.0"
-source = { editable = "integrations/with-litestar" }
+source = { editable = "examples/with-litestar" }
 dependencies = [
     { name = "litestar" },
 ]
@@ -3938,17 +4184,17 @@ requires-dist = [{ name = "litestar" }]
 [[package]]
 name = "with-masonite"
 version = "0.1.0"
-source = { editable = "integrations/with-masonite" }
+source = { editable = "examples/with-masonite" }
 
 [[package]]
 name = "with-pyramid"
 version = "0.1.0"
-source = { editable = "integrations/with-pyramid" }
+source = { editable = "examples/with-pyramid" }
 
 [[package]]
 name = "with-quart"
 version = "0.1.0"
-source = { editable = "integrations/with-quart" }
+source = { editable = "examples/with-quart" }
 dependencies = [
     { name = "quart", version = "0.20.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11'" },
     { name = "quart", version = "0.22.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.11' and python_full_version < '3.13'" },
@@ -3961,7 +4207,7 @@ requires-dist = [{ name = "quart" }]
 [[package]]
 name = "with-robyn"
 version = "0.1.0"
-source = { editable = "integrations/with-robyn" }
+source = { editable = "examples/with-robyn" }
 dependencies = [
     { name = "robyn" },
 ]
@@ -3972,12 +4218,12 @@ requires-dist = [{ name = "robyn" }]
 [[package]]
 name = "with-sanic"
 version = "0.1.0"
-source = { editable = "integrations/with-sanic" }
+source = { editable = "examples/with-sanic" }
 
 [[package]]
 name = "with-starlette"
 version = "0.1.0"
-source = { editable = "integrations/with-starlette" }
+source = { editable = "examples/with-starlette" }
 dependencies = [
     { name = "starlette" },
 ]
@@ -3988,7 +4234,7 @@ requires-dist = [{ name = "starlette" }]
 [[package]]
 name = "with-tornado"
 version = "0.1.0"
-source = { editable = "integrations/with-tornado" }
+source = { editable = "examples/with-tornado" }
 
 [[package]]
 name = "wsproto"

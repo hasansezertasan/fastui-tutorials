@@ -68,15 +68,6 @@ preview = true
   "suspicious-non-cryptographic-random-usage",
   "print",
 ]
-"integrations/with-*/src/**/__init__.py" = [
-  "missing-copyright-notice",
-  "undocumented-public-function",
-  "undocumented-public-package",
-  "non-empty-init-module",
-  "print",
-]
-
-
 [tool.ruff.lint.flake8-copyright]
 author = "Hasan Sezer Taşan <hasansezertasan@gmail.com>"
 
@@ -101,23 +92,36 @@ min_confidence = 100
 
 [tool.uv.workspace]
 members = [
-  "integrations/with-litestar",
-  "integrations/with-starlette",
-  "integrations/with-blacksheep",
-  "integrations/with-robyn",
-  "integrations/with-django",
-  "integrations/with-flask",
-  "examples/simple_form",
-  "integrations/with-quart",
   "components/navbar",
-  "integrations/with-fastapi-sub-application",
-  "integrations/with-tornado",
-  "integrations/with-pyramid",
-  "integrations/with-bottle",
-  "integrations/with-sanic",
-  "integrations/with-hug",
-  "integrations/with-masonite",
-  "integrations/with-emmet",
-  "integrations/with-falcon",
-  "integrations/with-fastapi",
+  "examples/basic_component_gallery",
+  "examples/dynamic_page_titles",
+  "examples/flask_fastui",
+  "examples/hello_world",
+  "examples/litestar_fastui",
+  "examples/navigation",
+  "examples/personal_portfolio",
+  "examples/random_number_generator",
+  "examples/robyn_fastui",
+  "examples/simple_form",
+  "examples/simple_layout",
+  "examples/starlette_fastui",
+  "examples/sub_application",
+  "examples/table_server_load",
+  "examples/with-blacksheep",
+  "examples/with-bottle",
+  "examples/with-django",
+  "examples/with-emmet",
+  "examples/with-falcon",
+  "examples/with-fastapi",
+  "examples/with-fastapi-sub-application",
+  "examples/with-flask",
+  "examples/with-hug",
+  "examples/with-litestar",
+  "examples/with-masonite",
+  "examples/with-pyramid",
+  "examples/with-quart",
+  "examples/with-robyn",
+  "examples/with-sanic",
+  "examples/with-starlette",
+  "examples/with-tornado",
 ]
