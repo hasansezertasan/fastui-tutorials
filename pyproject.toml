@@ -3,6 +3,7 @@ name = "fastui-tutorials"
 version = "0.1.0"
 requires-python = ">=3.10"
 
+
 [dependency-groups]
 test = ["pytest<9.1.2,>=9.1.1"]
 
@@ -14,7 +15,6 @@ fix = true
 
 
 [tool.ruff.lint]
-# Run `ruff linter` command to see all available linters and their descriptions
 select = ["ALL"]
 fixable = ["ALL"]
 ignore = [
@@ -22,11 +22,8 @@ ignore = [
 ]
 preview = true
 
+
 [tool.ruff.lint.per-file-ignores]
-"components/navbar/src/navbar/__init__.py" = [
-  "missing-copyright-notice",
-  "undocumented-public-package",
-]
 "examples/**/*.py" = [
   "builtin-argument-shadowing",
   "unused-function-argument",
@@ -45,10 +42,6 @@ preview = true
   "suspicious-non-cryptographic-random-usage",
   "print",
 ]
-[tool.ruff.lint.flake8-copyright]
-author = "Hasan Sezer Taşan <hasansezertasan@gmail.com>"
-
-
 [tool.ruff.lint.pydocstyle]
 convention = "google"
 
@@ -62,15 +55,17 @@ docstring-code-line-length = "dynamic"
 skip = 'uv.lock'
 count = true
 
+
 [tool.vulture]
 exclude = [".venv"]
 ignore_names = ["path", "request"]
 min_confidence = 100
 
+
 [tool.uv.workspace]
 members = [
-  "components/navbar",
   "examples/basic_component_gallery",
+  "examples/component-navbar",
   "examples/dynamic_page_titles",
   "examples/flask_fastui",
   "examples/hello_world",

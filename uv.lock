@@ -12,12 +12,12 @@ resolution-markers = [
 [manifest]
 members = [
     "basic-component-gallery",
+    "component-navbar",
     "dynamic-page-titles",
     "fastui-tutorials",
     "flask-fastui",
     "hello-world",
     "litestar-fastui",
-    "navbar",
     "navigation",
     "personal-portfolio",
     "random-number-generator",
@@ -261,6 +261,11 @@ sdist = { url = "https://files.pythonhosted.org/packages/d8/53/6f443c9a4a8358a93
 wheels = [
     { url = "https://files.pythonhosted.org/packages/d1/d6/3965ed04c63042e047cb6a3e6ed1a63a35087b6a609aa3a15ed8ac56c221/colorama-0.4.6-py2.py3-none-any.whl", hash = "sha256:4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6", size = 25335, upload-time = "2022-10-25T02:36:20.889Z" },
 ]
+
+[[package]]
+name = "component-navbar"
+version = "0.1.0"
+source = { editable = "examples/component-navbar" }
 
 [[package]]
 name = "dill"
@@ -1385,11 +1390,6 @@ sdist = { url = "https://files.pythonhosted.org/packages/eb/b4/6d66ad4c96d7ff7bd
 wheels = [
     { url = "https://files.pythonhosted.org/packages/51/b1/0cb4f124eee581f49e55b6f779aab097c4852ba408fc9607f6190289c129/nanodjango-0.16.4-py3-none-any.whl", hash = "sha256:a66eea211bb33986dc2b5b23741898c2875eccdef1831173dabc52219d79e104", size = 56577, upload-time = "2026-09-24T07:41:08.517Z" },
 ]
-
-[[package]]
-name = "navbar"
-version = "0.1.0"
-source = { editable = "components/navbar" }
 
 [[package]]
 name = "navigation"
