@@ -5,6 +5,10 @@
 
 from typing import TYPE_CHECKING, Any, cast
 
+import pytest
+
+pytest.importorskip("robyn", reason="robyn is not installed")
+
 from robyn.robyn import HttpMethod
 from robyn_fastui import app, page
 

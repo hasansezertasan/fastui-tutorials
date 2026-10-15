@@ -2,6 +2,8 @@
 
 ## ChatGPT
 
+- [x] [ChatGPT-style Chatbot with pydantic-ai](../examples/chatgpt/README.md)
+
 - Inspiration:
   - [shroominic/fastui-chat: 💬 minimalistic ChatBot Interface in pure python](https://github.com/shroominic/fastui-chat)
   - [Fastui-chat/src/fastui_chat/chat.py at main · mem15381/Fastui-chat](https://github.com/mem15381/Fastui-chat/blob/main/src/fastui_chat/chat.py)

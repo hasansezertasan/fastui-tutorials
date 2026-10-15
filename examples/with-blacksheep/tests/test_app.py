@@ -7,6 +7,10 @@ import asyncio
 import json
 from typing import TYPE_CHECKING, cast
 
+import pytest
+
+pytest.importorskip("blacksheep", reason="blacksheep is not installed")
+
 from blacksheep.testing import TestClient
 from with_blacksheep import app
 
