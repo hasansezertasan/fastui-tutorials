@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "FastUI integration with fastapi"
 readme = "README.md"
 authors = [{ name = "hasansezertasan", email = "hasansezertasan@gmail.com" }]
-requires-python = ">=3.10"
+requires-python = ">=3.11"
 dependencies = []
 
 [project.scripts]
