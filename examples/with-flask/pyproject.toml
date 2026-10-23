@@ -1,11 +1,11 @@
 [project]
 name = "with-flask"
 version = "0.1.0"
-description = "FastUI integration with flask"
+description = "FastUI example with Flask"
 readme = "README.md"
 authors = [{ name = "hasansezertasan", email = "hasansezertasan@gmail.com" }]
 requires-python = ">=3.10"
-dependencies = ["flask"]
+dependencies = ["fastui", "flask"]
 
 [project.scripts]
 with-flask = "with_flask:main"
