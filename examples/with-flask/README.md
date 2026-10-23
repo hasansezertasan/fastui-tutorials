@@ -18,7 +18,7 @@ cd fastui-tutorials
 ### Change directory to the example
 
 ```shell
-cd examples/with_flask
+cd examples/with-flask
 ```
 
 ### Run the application

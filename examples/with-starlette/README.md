@@ -18,7 +18,7 @@ cd fastui-tutorials
 ### Change directory to the example
 
 ```shell
-cd examples/with_starlette
+cd examples/with-starlette
 ```
 
 ### Run the application

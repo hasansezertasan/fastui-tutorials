@@ -1,8 +1,6 @@
 # Copyright (C) 2024 Hasan Sezer Taşan <hasansezertasan@gmail.com>
 from __future__ import annotations
 
-from pathlib import Path  # ruff: ignore[typing-only-standard-library-import]
-
 import uvicorn
 from fastui import AnyComponent, FastUI, prebuilt_html
 from fastui import components as c
@@ -17,7 +15,7 @@ async def page() -> list[AnyComponent]:
 
 
 @get(["/", "/{path:path}"], media_type=MediaType.HTML)
-async def root(path: Path | None) -> str:
+async def root() -> str:
     """Simple HTML page which serves the React app, comes last as it matches all paths."""
     return prebuilt_html(title="FastUI and Litestar Example")
 

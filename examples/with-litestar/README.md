@@ -18,7 +18,7 @@ cd fastui-tutorials
 ### Change directory to the example
 
 ```shell
-cd examples/with_litestar
+cd examples/with-litestar
 ```
 
 ### Run the application

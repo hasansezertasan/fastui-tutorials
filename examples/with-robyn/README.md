@@ -18,7 +18,7 @@ cd fastui-tutorials
 ### Change directory to the example
 
 ```shell
-cd examples/with_robyn
+cd examples/with-robyn
 ```
 
 ### Run the application
