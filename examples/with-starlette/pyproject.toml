@@ -1,11 +1,11 @@
 [project]
 name = "with-starlette"
 version = "0.1.0"
-description = "FastUI integration with starlette"
+description = "FastUI example with Starlette"
 readme = "README.md"
 authors = [{ name = "hasansezertasan", email = "hasansezertasan@gmail.com" }]
 requires-python = ">=3.11"
-dependencies = ["starlette"]
+dependencies = ["fastui", "starlette", "uvicorn"]
 
 [project.scripts]
 with-starlette = "with_starlette:main"

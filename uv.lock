@@ -17,16 +17,12 @@ members = [
     "component-navbar",
     "dynamic-page-titles",
     "fastui-tutorials",
-    "flask-fastui",
     "hello-world",
-    "litestar-fastui",
     "navigation",
     "personal-portfolio",
     "random-number-generator",
-    "robyn-fastui",
     "simple-form",
     "simple-layout",
-    "starlette-fastui",
     "sub-application",
     "table-server-load",
     "with-blacksheep",
@@ -34,8 +30,6 @@ members = [
     "with-django",
     "with-emmet",
     "with-falcon",
-    "with-fastapi",
-    "with-fastapi-sub-application",
     "with-flask",
     "with-hug",
     "with-litestar",
@@ -975,21 +969,6 @@ wheels = [
 ]
 
 [[package]]
-name = "flask-fastui"
-version = "0.1.0"
-source = { editable = "examples/flask_fastui" }
-dependencies = [
-    { name = "fastui" },
-    { name = "flask" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "fastui" },
-    { name = "flask" },
-]
-
-[[package]]
 name = "genai-prices"
 version = "0.1.13"
 source = { registry = "https://pypi.org/simple" }
@@ -1665,23 +1644,6 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/a9/08/eb40e03558b60ea10651d132aa666825eac040c3773b4a332ba305afb00b/litestar-2.25.0.tar.gz", hash = "sha256:7fad91fcd89367fcd26534ab19b6b05763cc67ab9574baa914546089e1ed1fb4", size = 385679, upload-time = "2026-10-18T19:13:42.048Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/47/32/247552ea639cd640db8057c4b6f0f8337dcf0d1f05d003dfdb9d5e77e4c7/litestar-2.25.0-py3-none-any.whl", hash = "sha256:ff16470b6aa3031ea3210bbb474b00b24c636ddfe8e0ee3d09c85aff3058a93f", size = 584699, upload-time = "2026-10-18T19:13:39.897Z" },
-]
-
-[[package]]
-name = "litestar-fastui"
-version = "0.1.0"
-source = { editable = "examples/litestar_fastui" }
-dependencies = [
-    { name = "fastui" },
-    { name = "litestar" },
-    { name = "uvicorn" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "fastui" },
-    { name = "litestar" },
-    { name = "uvicorn" },
 ]
 
 [[package]]
@@ -3369,21 +3331,6 @@ wheels = [
 ]
 
 [[package]]
-name = "robyn-fastui"
-version = "0.1.0"
-source = { editable = "examples/robyn_fastui" }
-dependencies = [
-    { name = "fastui" },
-    { name = "robyn" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "fastui" },
-    { name = "robyn" },
-]
-
-[[package]]
 name = "rodi"
 version = "2.0.8"
 source = { registry = "https://pypi.org/simple" }
@@ -3630,23 +3577,6 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/ad/eb/4e197bf26b023abafc5e9043ec8710d7de0fcb032d0969045236d72aa0b1/starlette-1.9.0.tar.gz", hash = "sha256:3d931de246ed870e35ce605974440816ef895e592f255d1396cfdf191d4c4318", size = 2732466, upload-time = "2026-10-18T15:50:33.189Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/f3/93/181df62699d9b5aca1d87e5cfda131dac87e3cdaebf668662f7206ca3470/starlette-1.9.0-py3-none-any.whl", hash = "sha256:fd3f159936e882d06c1108f84688f7cda2cf85fc6a592a50edbd175e882c2ddc", size = 80335, upload-time = "2026-10-18T15:50:31.526Z" },
-]
-
-[[package]]
-name = "starlette-fastui"
-version = "0.1.0"
-source = { editable = "examples/starlette_fastui" }
-dependencies = [
-    { name = "fastui" },
-    { name = "starlette" },
-    { name = "uvicorn" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "fastui" },
-    { name = "starlette" },
-    { name = "uvicorn" },
 ]
 
 [[package]]
@@ -4090,25 +4020,19 @@ version = "0.1.0"
 source = { editable = "examples/with-falcon" }
 
 [[package]]
-name = "with-fastapi"
-version = "0.1.0"
-source = { editable = "examples/with-fastapi" }
-
-[[package]]
-name = "with-fastapi-sub-application"
-version = "0.1.0"
-source = { editable = "examples/with-fastapi-sub-application" }
-
-[[package]]
 name = "with-flask"
 version = "0.1.0"
 source = { editable = "examples/with-flask" }
 dependencies = [
+    { name = "fastui" },
     { name = "flask" },
 ]
 
 [package.metadata]
-requires-dist = [{ name = "flask" }]
+requires-dist = [
+    { name = "fastui" },
+    { name = "flask" },
+]
 
 [[package]]
 name = "with-hug"
@@ -4120,11 +4044,17 @@ name = "with-litestar"
 version = "0.1.0"
 source = { editable = "examples/with-litestar" }
 dependencies = [
+    { name = "fastui" },
     { name = "litestar" },
+    { name = "uvicorn" },
 ]
 
 [package.metadata]
-requires-dist = [{ name = "litestar" }]
+requires-dist = [
+    { name = "fastui" },
+    { name = "litestar" },
+    { name = "uvicorn" },
+]
 
 [[package]]
 name = "with-masonite"
@@ -4153,11 +4083,15 @@ name = "with-robyn"
 version = "0.1.0"
 source = { editable = "examples/with-robyn" }
 dependencies = [
+    { name = "fastui" },
     { name = "robyn" },
 ]
 
 [package.metadata]
-requires-dist = [{ name = "robyn" }]
+requires-dist = [
+    { name = "fastui" },
+    { name = "robyn" },
+]
 
 [[package]]
 name = "with-sanic"
@@ -4169,11 +4103,17 @@ name = "with-starlette"
 version = "0.1.0"
 source = { editable = "examples/with-starlette" }
 dependencies = [
+    { name = "fastui" },
     { name = "starlette" },
+    { name = "uvicorn" },
 ]
 
 [package.metadata]
-requires-dist = [{ name = "starlette" }]
+requires-dist = [
+    { name = "fastui" },
+    { name = "starlette" },
+    { name = "uvicorn" },
+]
 
 [[package]]
 name = "with-tornado"

@@ -23,11 +23,11 @@ Each example is a separate project and ordered by complexity.
 - [ChatGPT-style Chatbot (pydantic-ai)](./examples/chatgpt/)
 - [Personal Portfolio](./examples/personal_portfolio/)
 - FastUI with other frameworks:
-  - [Starlette Example](./examples/starlette_fastui/)
-  - [Litestar Example](./examples/litestar_fastui/)
+  - [Starlette Example](./examples/with-starlette/)
+  - [Litestar Example](./examples/with-litestar/)
   - [BlackSheep Example](./examples/with-blacksheep/)
-  - [Flask Example](./examples/flask_fastui/)
-  - [Robyn Example](./examples/robyn_fastui/)
+  - [Flask Example](./examples/with-flask/)
+  - [Robyn Example](./examples/with-robyn/)
 - FAQ:
   - [Sub Application](./examples/sub_application/)
 

@@ -10,7 +10,7 @@ import pytest
 pytest.importorskip("robyn", reason="robyn is not installed")
 
 from robyn.robyn import HttpMethod
-from robyn_fastui import app, page
+from with_robyn import app, page
 
 if TYPE_CHECKING:
     from collections.abc import Callable
