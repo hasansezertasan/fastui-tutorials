@@ -1,7 +1,7 @@
 [project]
 name = "fastui-tutorials"
 version = "0.1.0"
-requires-python = ">=3.10"
+requires-python = ">=3.11"
 
 
 [dependency-groups]
