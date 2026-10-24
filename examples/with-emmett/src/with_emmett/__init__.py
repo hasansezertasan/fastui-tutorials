@@ -21,7 +21,7 @@ async def page() -> str:
     Returns:
         The page components serialized as JSON.
     """
-    response.content_type = "application/json"
+    response.headers["content-type"] = "application/json"
     return FastUI(root=[c.Heading(text="Hello World")]).model_dump_json(
         exclude_none=True,
     )
@@ -35,7 +35,7 @@ async def root(path: str = "") -> str:
     Returns:
         An HTML page that loads the prebuilt FastUI app.
     """
-    response.content_type = "text/html"
+    response.headers["content-type"] = "text/html"
     return prebuilt_html(title="FastUI and Emmett Example")
 
 

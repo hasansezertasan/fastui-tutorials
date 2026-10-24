@@ -15,6 +15,7 @@ def test_api_returns_fastui_json() -> None:
     response = EmmettTestClient(app).get("/api/")
 
     assert response.status == HTTPStatus.OK
+    assert response.headers["content-type"].startswith("application/json")
     assert json.loads(response.data) == [
         {"type": "Heading", "text": "Hello World", "level": 1},
     ]
@@ -27,4 +28,5 @@ def test_other_paths_serve_the_react_shell() -> None:
         response = client.get(path)
 
         assert response.status == HTTPStatus.OK
+        assert response.headers["content-type"].startswith("text/html")
         assert "<html" in response.data
