@@ -35,3 +35,14 @@ eol = "lf"
   path = "Python.gitignore"
   commit = "0e5d690153ca3da8a4a1aef2d053406f408f531c"
   blob = "6f596e17917419c463b0d15bf1f0bce19b8918eb"
+
+[[fragment]]
+path = ".editorconfig"
+source = "editorconfig"
+update = true
+
+  [[fragment.files]]
+  name = "Generic"
+  path = "Generic.editorconfig"
+  commit = "f64e011b04669db816b8075f3a9d4f3beb58c9d6"
+  blob = "b1b86bb89af2ed0a690f506273637d5e31a62c58"
