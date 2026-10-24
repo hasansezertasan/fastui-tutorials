@@ -21,6 +21,7 @@ def page() -> str:
     """
     response.content_type = "application/json"
     return FastUI(root=[c.Heading(text="Hello World")]).model_dump_json(
+        by_alias=True,
         exclude_none=True,
     )
 

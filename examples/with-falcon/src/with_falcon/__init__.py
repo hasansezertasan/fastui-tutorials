@@ -23,6 +23,7 @@ class PageResource:
         """Write the page components as JSON."""
         resp.content_type = falcon.MEDIA_JSON
         resp.text = FastUI(root=[c.Heading(text="Hello World")]).model_dump_json(
+            by_alias=True,
             exclude_none=True,
         )
 

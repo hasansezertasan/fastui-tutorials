@@ -10,7 +10,8 @@ So even a Flask or Django app must install FastAPI alongside, which is what the 
 
 The recipe is always:
 
-1. Serve `/api/...` routes that return `FastUI(root=[...]).model_dump_json(exclude_none=True)` with a JSON content type.
+1. Serve `/api/...` routes that return `FastUI(root=[...]).model_dump_json(by_alias=True, exclude_none=True)` with a JSON content type.
+   `by_alias=True` matters: FastUI's React app reads camelCase keys such as `onClick` and `className`, while Pydantic emits `on_click` and `class_name` unless asked to use the aliases. FastAPI's `response_model` does this for you, but when you serialize by hand you must. A bare `Heading` hides the mistake, so it only shows once a component has an event or a class.
 2. Serve a catch-all route that returns `prebuilt_html(title=...)` as HTML, registered so it does not shadow `/api/`.
 
 Compare how little changes:
@@ -19,11 +20,11 @@ Compare how little changes:
 # Flask
 @app.get("/api/")
 def page() -> Response:
-    return jsonify(FastUI(root=[c.Heading(text="Hello World")]).model_dump())
+    return jsonify(FastUI(root=[c.Heading(text="Hello World")]).model_dump(by_alias=True, exclude_none=True))
 
 # Starlette
 def page(request: Request) -> JSONResponse:
-    return JSONResponse(FastUI(root=[c.Heading(text="Hello World")]).model_dump())
+    return JSONResponse(FastUI(root=[c.Heading(text="Hello World")]).model_dump(by_alias=True, exclude_none=True))
 ```
 
 You lose FastAPI's `response_model` and `fastui_form` helpers, and a framework's own routing quirks matter.
@@ -32,7 +33,7 @@ Most of the differences between the examples are about **route ordering**, becau
 | Framework | Style | Gotcha |
 | --- | --- | --- |
 | [Starlette](../../examples/with-starlette/) | ASGI | Routes match in list order |
-| [Litestar](../../examples/with-litestar/) | ASGI | Static routes win over the `/{path:path}` catch-all, so order does not matter |
+| [Litestar](../../examples/with-litestar/) | ASGI | Static routes win over the `/{path:path}` catch-all. Serializes the model itself, so enable `PydanticPlugin(prefer_alias=True, exclude_none=True)` |
 | [BlackSheep](../../examples/with-blacksheep/) | ASGI | The shell is set as the router `fallback` |
 | [Flask](../../examples/with-flask/) | WSGI | Needs two decorators for `/` and `/<path>` |
 | [Robyn](../../examples/with-robyn/) | Rust-backed | Returns plain Python objects, which Robyn serializes |

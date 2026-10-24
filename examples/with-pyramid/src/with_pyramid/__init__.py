@@ -24,7 +24,10 @@ def page(request: Request) -> Response:
         A JSON response containing the FastUI page components.
     """
     return Response(
-        FastUI(root=[c.Heading(text="Hello World")]).model_dump_json(exclude_none=True),
+        FastUI(root=[c.Heading(text="Hello World")]).model_dump_json(
+            by_alias=True,
+            exclude_none=True,
+        ),
         content_type="application/json",
         charset="utf-8",
     )

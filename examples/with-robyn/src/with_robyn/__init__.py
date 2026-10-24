@@ -24,7 +24,10 @@ app = Robyn(__file__)
 @app.get("/api/")  # type: ignore[misc]
 def page(request: Request) -> list[Any]:
     # Robyn serializes the returned list to JSON via orjson automatically.
-    return FastUI(root=[c.Heading(text="Hello World")]).model_dump()
+    return FastUI(root=[c.Heading(text="Hello World")]).model_dump(
+        by_alias=True,
+        exclude_none=True,
+    )
 
 
 @app.get("/*path")  # type: ignore[misc]

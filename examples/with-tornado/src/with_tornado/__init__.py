@@ -20,6 +20,7 @@ class PageHandler(tornado.web.RequestHandler):
         self.set_header("Content-Type", "application/json")
         self.write(
             FastUI(root=[c.Heading(text="Hello World")]).model_dump_json(
+                by_alias=True,
                 exclude_none=True,
             ),
         )

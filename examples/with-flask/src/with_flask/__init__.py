@@ -12,7 +12,12 @@ app = Flask(__name__)
 
 @app.get("/api/")
 def page() -> Response:
-    return jsonify(FastUI(root=[c.Heading(text="Hello World")]).model_dump())
+    return jsonify(
+        FastUI(root=[c.Heading(text="Hello World")]).model_dump(
+            by_alias=True,
+            exclude_none=True,
+        ),
+    )
 
 
 @app.get("/")

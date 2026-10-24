@@ -10,6 +10,9 @@ dependencies = ["fastui[fastapi]", "litestar", "uvicorn"]
 [project.scripts]
 with-litestar = "with_litestar:main"
 
+[dependency-groups]
+dev = ["pytest"]
+
 [build-system]
 requires = ["uv_build>=0.12.10,<0.13.0"]
 build-backend = "uv_build"

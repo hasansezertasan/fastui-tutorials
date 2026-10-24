@@ -23,6 +23,7 @@ async def page() -> str:
     """
     response.headers["content-type"] = "application/json"
     return FastUI(root=[c.Heading(text="Hello World")]).model_dump_json(
+        by_alias=True,
         exclude_none=True,
     )
 

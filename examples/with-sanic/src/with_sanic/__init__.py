@@ -27,7 +27,10 @@ async def page(request: Request) -> HTTPResponse:
         A JSON response containing the FastUI page components.
     """
     return json(
-        FastUI(root=[c.Heading(text="Hello World")]).model_dump(exclude_none=True),
+        FastUI(root=[c.Heading(text="Hello World")]).model_dump(
+            by_alias=True,
+            exclude_none=True,
+        ),
     )
 
 
