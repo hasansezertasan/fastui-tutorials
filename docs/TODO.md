@@ -6,7 +6,7 @@ The tutorial lives in [`docs/tutorial/`](./tutorial/README.md).
 
 - [x] Tutorial chapters 1 to 9
 - [x] [ChatGPT-style Chatbot with pydantic-ai](../examples/chatgpt/README.md)
-- [x] [Table with ServerLoad Example](../examples/table_server_load/README.md)
+- [x] [Table with Detail Pages](../examples/table_server_load/README.md)
 - [x] Framework examples for Starlette, Litestar, BlackSheep, Flask, Robyn, Bottle, Django, Emmett, Falcon, Pyramid, Quart, Sanic and Tornado
 
 ## Blocked

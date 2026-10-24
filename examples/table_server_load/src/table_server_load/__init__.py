@@ -7,14 +7,12 @@ from fastapi.responses import HTMLResponse
 from fastui import AnyComponent, FastUI, prebuilt_html
 from fastui import components as c
 from fastui.components.display import DisplayLookup
-from fastui.events import PageEvent
+from fastui.events import GoToEvent
 from pydantic import BaseModel, Field
 
 FastUI.model_rebuild()
 
 app = FastAPI()
-
-USER_DETAILS_EVENT = "user-details"
 
 
 class User(BaseModel):
@@ -30,63 +28,60 @@ users = [
 ]
 
 
+def back_link() -> AnyComponent:
+    return c.Link(
+        components=[c.Text(text="Back to users")],
+        on_click=GoToEvent(url="/"),
+    )
+
+
 @app.get("/api/", response_model=FastUI, response_model_exclude_none=True)
 def users_table() -> list[AnyComponent]:
     return [
+        c.PageTitle(text="Users"),
         c.Page(
             components=[
                 c.Heading(text="Users", level=2),
-                c.Paragraph(text="Click on a user ID to see their details below."),
+                c.Paragraph(text="Click on a user ID to see their details."),
                 c.Table(
                     data=users,
                     data_model=User,
                     columns=[
-                        DisplayLookup(
-                            field="id",
-                            on_click=PageEvent(
-                                name=USER_DETAILS_EVENT,
-                                context={"user_id": "{id}"},
-                            ),
-                        ),
+                        # "{id}" is replaced with the clicked row's id
+                        DisplayLookup(field="id", on_click=GoToEvent(url="/user/{id}")),
                         DisplayLookup(field="name"),
                         DisplayLookup(field="role"),
                     ],
-                ),
-                c.Div(
-                    components=[
-                        c.ServerLoad(
-                            path="/api/user-details/{user_id}",
-                            load_trigger=PageEvent(name=USER_DETAILS_EVENT),
-                            components=[c.Text(text="Select a user to see details...")],
-                        ),
-                    ],
-                    class_name="border-top mt-3 pt-3",
                 ),
             ],
         ),
     ]
 
 
-@app.get(
-    "/api/user-details/{user_id}",
-    response_model=FastUI,
-    response_model_exclude_none=True,
-)
+@app.get("/api/user/{user_id}", response_model=FastUI, response_model_exclude_none=True)
 def user_details(user_id: int) -> list[AnyComponent]:
     user = next((u for u in users if u.id == user_id), None)
     if user is None:
-        return [c.Text(text="User not found")]
+        return [
+            c.Page(components=[c.Heading(text="User not found", level=2), back_link()]),
+        ]
 
     return [
-        c.Heading(text=f"Details for {user.name}", level=3),
-        c.Paragraph(text=f"ID: {user.id}"),
-        c.Paragraph(text=f"Role: {user.role}"),
+        c.PageTitle(text=f"Details for {user.name}"),
+        c.Page(
+            components=[
+                c.Heading(text=f"Details for {user.name}", level=2),
+                c.Paragraph(text=f"ID: {user.id}"),
+                c.Paragraph(text=f"Role: {user.role}"),
+                back_link(),
+            ],
+        ),
     ]
 
 
 @app.get("/{path:path}")
 async def html_landing() -> HTMLResponse:
-    return HTMLResponse(prebuilt_html(title="FastUI Table ServerLoad Example"))
+    return HTMLResponse(prebuilt_html(title="FastUI Table Example"))
 
 
 def main() -> None:
