@@ -1,0 +1,37 @@
+version = 1
+
+[[fragment]]
+path = ".gitignore"
+source = "gitignore"
+update = true
+eol = "lf"
+
+  [[fragment.files]]
+  name = "macOS"
+  path = "Global/macOS.gitignore"
+  commit = "0e5d690153ca3da8a4a1aef2d053406f408f531c"
+  blob = "e5328c061b39eb6a3ab3a4310a2a0a0dfb3b2ec8"
+
+  [[fragment.files]]
+  name = "Windows"
+  path = "Global/Windows.gitignore"
+  commit = "0e5d690153ca3da8a4a1aef2d053406f408f531c"
+  blob = "84bffec74db3273565f4c9b3e9ffcc216cec1611"
+
+  [[fragment.files]]
+  name = "Linux"
+  path = "Global/Linux.gitignore"
+  commit = "0e5d690153ca3da8a4a1aef2d053406f408f531c"
+  blob = "35ea8c67239c3542d012454da948096a52d1bf06"
+
+  [[fragment.files]]
+  name = "VisualStudioCode"
+  path = "Global/VisualStudioCode.gitignore"
+  commit = "0e5d690153ca3da8a4a1aef2d053406f408f531c"
+  blob = "12ee62bbb7c5fb3449386f0580fe3ca09a64d173"
+
+  [[fragment.files]]
+  name = "Python"
+  path = "Python.gitignore"
+  commit = "0e5d690153ca3da8a4a1aef2d053406f408f531c"
+  blob = "6f596e17917419c463b0d15bf1f0bce19b8918eb"

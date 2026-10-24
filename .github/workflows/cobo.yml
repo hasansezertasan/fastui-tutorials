@@ -1,0 +1,35 @@
+---
+name: Update cobo fragments
+on:
+  # Weekly: re-render any cobo-managed fragment (e.g. .gitignore) whose upstream
+  # template has changed and open one grouped PR. workflow_dispatch allows a
+  # manual run.
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+permissions: {}
+jobs:
+  update:
+    name: Update cobo fragments
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write  # push the update branch
+      pull-requests: write  # open the pull request
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7
+        with:
+          persist-credentials: false
+      - name: Re-render drifted fragments
+        uses: hasansezertasan/cobo@1acfd57dbd67a6de4508a0924504cb5d5d5c15e0  # v0.6.0
+        with:
+          # Conventional Branch name, so branch-name linting accepts the update PR.
+          branch: chore/update-cobo-fragments
+          pr-title: "chore: update cobo fragments"
+          # This repository has no label manifest, so the action's default `cobo`
+          # label would not exist.
+          pr-labels: ""
+          # Without this a fragment that cannot be re-rendered leaves the job green and
+          # the fragment silently stale (no diff means no PR either).
+          fail-on-sync-error: "true"
