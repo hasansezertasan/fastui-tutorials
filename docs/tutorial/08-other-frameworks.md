@@ -2,8 +2,11 @@
 
 Examples: the `examples/with-*` projects.
 
-Nothing in [chapter 1](01-how-fastui-works.md) requires FastAPI.
+Nothing in [chapter 1](01-how-fastui-works.md) requires FastAPI *to serve* a FastUI app.
 FastUI is a set of Pydantic models plus a prebuilt React app, so any framework that can return JSON and HTML can serve it.
+
+One catch: the `fastui` package imports `fastapi` when it loads, because its form helpers use it.
+So even a Flask or Django app must install FastAPI alongside, which is what the `fastui[fastapi]` dependency in each example's `pyproject.toml` does. Plain `fastui` fails with `ImportError: fastui.dev requires fastapi to be installed`.
 
 The recipe is always:
 

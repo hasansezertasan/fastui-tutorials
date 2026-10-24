@@ -5,10 +5,13 @@ description = "FastUI example with Django"
 readme = "README.md"
 authors = [{ name = "hasansezertasan", email = "hasansezertasan@gmail.com" }]
 requires-python = ">=3.11"
-dependencies = ["nanodjango"]
+dependencies = ["django", "fastui[fastapi]"]
 
 [project.scripts]
 with-django = "with_django:main"
+
+[dependency-groups]
+dev = ["pytest"]
 
 [build-system]
 requires = ["uv_build>=0.12.10,<0.13.0"]

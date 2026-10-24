@@ -10,6 +10,8 @@ The recipe is the same for any framework:
 2. **A catch-all route, registered last,** returns `prebuilt_html(...)`, the HTML shell that loads the FastUI React app.
    The React app then fetches `/api/<same path>` to learn what to render.
 
+FastUI itself still needs FastAPI installed, because it imports `fastapi` at load time. That is why the dependency is `fastui[fastapi]`.
+
 ## What is specific to Emmett
 
 Emmett strips trailing slashes before routing, so the API route is registered as `/api` and still serves `/api/`.

@@ -5,10 +5,13 @@ description = "FastUI example with Emmett"
 readme = "README.md"
 authors = [{ name = "hasansezertasan", email = "hasansezertasan@gmail.com" }]
 requires-python = ">=3.11"
-dependencies = ["fastui", "emmett", "granian"]
+dependencies = ["fastui[fastapi]", "emmett", "granian"]
 
 [project.scripts]
 with-emmett = "with_emmett:main"
+
+[dependency-groups]
+dev = ["pytest"]
 
 [build-system]
 requires = ["uv_build>=0.12.10,<0.13.0"]

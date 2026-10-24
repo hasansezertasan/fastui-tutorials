@@ -5,10 +5,13 @@ description = "FastUI example with Falcon"
 readme = "README.md"
 authors = [{ name = "hasansezertasan", email = "hasansezertasan@gmail.com" }]
 requires-python = ">=3.11"
-dependencies = ["fastui", "falcon"]
+dependencies = ["fastui[fastapi]", "falcon"]
 
 [project.scripts]
 with-falcon = "with_falcon:main"
+
+[dependency-groups]
+dev = ["pytest"]
 
 [build-system]
 requires = ["uv_build>=0.12.10,<0.13.0"]

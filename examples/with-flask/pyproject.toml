@@ -5,7 +5,7 @@ description = "FastUI example with Flask"
 readme = "README.md"
 authors = [{ name = "hasansezertasan", email = "hasansezertasan@gmail.com" }]
 requires-python = ">=3.11"
-dependencies = ["fastui", "flask"]
+dependencies = ["fastui[fastapi]", "flask"]
 
 [project.scripts]
 with-flask = "with_flask:main"

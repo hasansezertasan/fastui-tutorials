@@ -5,7 +5,7 @@ description = "FastUI integration with blacksheep"
 readme = "README.md"
 authors = [{ name = "hasansezertasan", email = "hasansezertasan@gmail.com" }]
 requires-python = ">=3.11"
-dependencies = ["blacksheep", "fastui", "uvicorn"]
+dependencies = ["blacksheep", "fastui[fastapi]", "uvicorn"]
 
 [project.scripts]
 with-blacksheep = "with_blacksheep:main"
