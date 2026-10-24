@@ -17,11 +17,13 @@ app = FastAPI()
 
 
 class BMIForm(BaseModel):
-    weight: float = Field(..., title="Weight (kg)")
-    height: float = Field(..., gt=0, title="Height (m)")
+    # Whole numbers: FastUI renders float fields as <input type="number"> without
+    # a step, so browsers refuse decimals such as 1.75.
+    weight: int = Field(..., gt=0, title="Weight (kg)")
+    height: int = Field(..., gt=0, title="Height (cm)")
 
     def calculate_bmi(self) -> float:
-        return self.weight / self.height**2
+        return self.weight / (self.height / 100) ** 2
 
 
 @app.get("/api/", response_model=FastUI, response_model_exclude_none=True)
@@ -42,7 +44,7 @@ def page() -> list[AnyComponent]:
 def calculate_bmi_post(
     form: Annotated[BMIForm, fastui_form(BMIForm)],
 ) -> list[AnyComponent]:
-    text = f"Your BMI is {form.calculate_bmi()}"
+    text = f"Your BMI is {form.calculate_bmi():.1f}"
     return [c.Paragraph(text=text)]
 
 

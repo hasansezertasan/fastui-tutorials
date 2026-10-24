@@ -43,7 +43,7 @@ Run it with `uv run dynamic-page-titles` from `examples/dynamic_page_titles`.
 
 ## Try it
 
-- Put a `PageTitle` and a `Page` in the same list. Order within the list does not matter for the title.
+- Put a `PageTitle` and a `Page` in the same list, as the [navigation example](04-navigation.md) does.
 - Nest a `c.Div` inside a `c.Page`, and give it `class_name="border p-3"` (FastUI's prebuilt app ships with Bootstrap).
 
 Next: [Navigation](04-navigation.md).

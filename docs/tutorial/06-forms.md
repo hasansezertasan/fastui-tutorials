@@ -13,16 +13,20 @@ This is where FastUI's Pydantic foundation pays off: you describe a form as a mo
 
 ```python
 class BMIForm(BaseModel):
-    weight: float = Field(..., title="Weight (kg)")
-    height: float = Field(..., gt=0, title="Height (m)")
+    weight: int = Field(..., gt=0, title="Weight (kg)")
+    height: int = Field(..., gt=0, title="Height (cm)")
 
     def calculate_bmi(self) -> float:
-        return self.weight / self.height**2
+        return self.weight / (self.height / 100) ** 2
 ```
 
-- Each field becomes an input, and the type picks the kind (`float` gives a number input, `bool` a checkbox, `Enum` a select).
+- Each field becomes an input, and the type picks the kind (`int` and `float` give a number input, `bool` a checkbox, `Enum` a select).
 - `title` is the label.
-- Constraints such as `gt=0` become validation rules, checked in the browser and again on the server.
+- Constraints such as `gt=0` are validated by Pydantic **on the server**. The error comes back and the React app shows it next to the field.
+
+The fields are `int` on purpose, which is a trap worth knowing.
+With FastUI 0.9, a `float` field becomes `<input type="number">` with no `step`, and browsers treat that as `step="1"`, so typing `1.75` is rejected with "The two nearest valid values are 1 and 2" before anything is sent.
+Pick units that fit whole numbers (centimetres, not metres), or use a text field and convert yourself.
 
 ## Showing it
 
@@ -39,7 +43,7 @@ c.ModelForm(model=BMIForm, submit_url="/api/calculate")
 def calculate_bmi_post(
     form: Annotated[BMIForm, fastui_form(BMIForm)],
 ) -> list[AnyComponent]:
-    return [c.Paragraph(text=f"Your BMI is {form.calculate_bmi()}")]
+    return [c.Paragraph(text=f"Your BMI is {form.calculate_bmi():.1f}")]
 ```
 
 `fastui_form(BMIForm)` is a FastAPI dependency that reads the submitted form data and validates it into a `BMIForm`.
@@ -51,7 +55,7 @@ By default, the components you return replace the form, which is why the result 
 ## Try it
 
 - Enter `0` for height and see the server-side error.
-- Round the result with an f-string format spec such as `{bmi:.1f}`.
+- Change the result format: the handler uses `:.1f`, so try `:.2f`.
 - Add a `bool` field to the model and watch a checkbox appear.
 
 Next: [Tables](07-tables.md).
