@@ -7,7 +7,7 @@ This repository is a step-by-step tutorial backed by small, runnable examples.
 
 ## Start here
 
-Read the **[tutorial](./docs/tutorial/README.md)**. It takes you from "what is FastUI" to forms, tables and partial updates in nine short chapters, each linked to a runnable example:
+Read the **[tutorial](./docs/tutorial/README.md)**. It takes you from "what is FastUI" to forms, tables and partial updates in nine short chapters. Chapter 1 explains the model, and chapters 2 to 9 each link to a runnable example:
 
 1. [How FastUI works](./docs/tutorial/01-how-fastui-works.md)
 2. [Hello World](./docs/tutorial/02-hello-world.md)

@@ -1,20 +1,27 @@
 # Masonite and FastUI (not implemented)
 
 > **Status: not implemented.** This directory is a placeholder.
-> Masonite cannot be installed on the Python versions this repository uses.
+> Masonite is a project framework, so it does not fit the single-file style of the other examples.
 
-[Masonite](https://docs.masoniteproject.com/) is a full-stack Python web framework.
+[Masonite](https://docs.masonite.dev/) is a full-stack Python web framework.
 FastUI could in principle be served from it like from any other framework (see [Other web frameworks](../../docs/tutorial/08-other-frameworks.md)): return the component tree as JSON from `/api/`, and the HTML shell from a catch-all route.
 
 ## Why there is no example
 
-- **Masonite fails to install on current Python.**
-  The latest release, 4.20.4, pins `pendulum==2.1.2` (and `watchdog==4.0.0`).
-  Pendulum 2.1.2 publishes no wheel for current Python versions, so it is built from source, and its build script imports `distutils`, which was removed from the standard library in Python 3.12 ([PEP 632](https://peps.python.org/pep-0632/)).
-  `uv pip install masonite` on Python 3.14 stops with `Failed to build pendulum==2.1.2` and `ModuleNotFoundError: No module named 'distutils'`.
-- This repository targets Python 3.11+ and develops on 3.14, so a Masonite example could not be installed or tested in CI.
-- Masonite is also a full project framework, with its own project scaffolding, service providers and `craft` CLI.
-  A single-file example like the others would not show how it is really used, and a faithful one would be much larger than the rest.
+- **Masonite is built around a generated project, not a module.**
+  A Masonite app boots from a top-level `wsgi.py` that defines `application`, and the framework's facades (`config(...)`, `Response`, and so on) do `from wsgi import application` internally.
+  Its configuration is loaded from a `config/` directory of files (`application.py`, `providers.py`, `security.py`, ...), and routes, controllers and middleware live in their own directories.
+- **A single-file example was tried and does not work.**
+  Booting the framework with `CoreKernel` and a handful of providers fails without a real `config/` directory under the working directory, and the `wsgi` module has to exist by name.
+  Working around that means faking a project layout inside the package, which would teach readers the wrong way to use Masonite.
+- **A faithful example would be a generated project** (`craft new`, then dozens of files), which is a different shape from the one-package examples in this repository, and much larger than the rest.
+
+## Which package to use
+
+Masonite 5 is published on PyPI as **`masonite-framework`**.
+The old `masonite` package (4.x and earlier, the last release being 4.20.4) is deprecated.
+It pins `pendulum==2.1.2`, whose build needs `distutils`, so `pip install masonite` fails on current Python.
+`masonite-framework` installs and imports on Python 3.13 and 3.14, so that is not what blocks an example here.
 
 ## Alternatives
 
@@ -22,5 +29,6 @@ For a full-stack framework, see [`with-django`](../with-django/), which runs as 
 
 ## If you want to implement it
 
-Contributions are welcome once Masonite supports current Python versions, for instance by moving to a Pendulum release that ships wheels.
-Follow the pattern in [`with-django`](../with-django/), then replace this README with the usual "How to run" instructions.
+Contributions are welcome.
+The honest shape is a small generated Masonite 5 project with `masonite-framework` and `fastui[fastapi]` as dependencies, an `/api/` route that returns the component tree, and a catch-all route that returns `prebuilt_html(...)`.
+If you do that, replace this README with the usual "How to run" instructions.

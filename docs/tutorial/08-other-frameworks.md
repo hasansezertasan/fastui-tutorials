@@ -47,7 +47,7 @@ Most of the differences between the examples are about **route ordering**, becau
 
 Each example has its own README and a small test.
 
-Two frameworks are deliberately missing: [Hug](../../examples/with-hug/) does not import on Python 3.13+, and [Masonite](../../examples/with-masonite/) does not install on current Python. Their READMEs explain why.
+Two frameworks are deliberately missing: [Hug](../../examples/with-hug/) does not import on Python 3.13+, and [Masonite](../../examples/with-masonite/) is a project framework that does not fit a single-file example. Their READMEs explain why.
 
 ## Using FastUI as a sub-application
 

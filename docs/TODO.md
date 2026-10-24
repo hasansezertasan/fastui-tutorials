@@ -12,7 +12,7 @@ The tutorial lives in [`docs/tutorial/`](./tutorial/README.md).
 ## Blocked
 
 - [Hug](../examples/with-hug/README.md): needs a release that supports Python 3.13+.
-- [Masonite](../examples/with-masonite/README.md): needs a release that installs on current Python.
+- [Masonite](../examples/with-masonite/README.md): needs a small generated Masonite 5 project (`masonite-framework`) rather than a single file.
 
 ## Ideas
 
