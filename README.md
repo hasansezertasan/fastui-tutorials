@@ -1,12 +1,27 @@
 # FastUI Tutorials
 
-I'm exploring [FastUI][fastui] features and capabilities, and in doing so, I'm developing entry-level examples.
+Learn [FastUI][fastui], the library for building web UIs in pure Python, with no JavaScript.
 
-[FastUI][fastui] doesn't have a documentation, so you need to figure out how to use it by looking at the source code (terrible idea if you don't know ReactJS) or by looking at the demo application (which is a bit complicated and not very easy to understand).
+[FastUI][fastui] has no official documentation, so you would otherwise have to read its source (a bad idea if you do not know ReactJS) or its demo application (which is fairly complicated).
+This repository is a step-by-step tutorial backed by small, runnable examples.
 
-So this project (with simple examples) might be helpful for those who are new to [FastUI][fastui].
+## Start here
 
-## Examples
+Read the **[tutorial](./docs/tutorial/README.md)**. It takes you from "what is FastUI" to forms, tables and partial updates in nine short chapters. Chapter 1 explains the model, and chapters 2 to 9 each link to a runnable example:
+
+1. [How FastUI works](./docs/tutorial/01-how-fastui-works.md)
+2. [Hello World](./docs/tutorial/02-hello-world.md)
+3. [Layout and page titles](./docs/tutorial/03-layout-and-titles.md)
+4. [Navigation](./docs/tutorial/04-navigation.md)
+5. [Loading content on demand](./docs/tutorial/05-server-load.md)
+6. [Forms](./docs/tutorial/06-forms.md)
+7. [Tables](./docs/tutorial/07-tables.md)
+8. [Other web frameworks](./docs/tutorial/08-other-frameworks.md)
+9. [Where to go next](./docs/tutorial/09-next-steps.md)
+
+You need Python 3.11+ and [uv](https://docs.astral.sh/uv/). Each example is its own project, and its README says how to run it.
+
+## All examples
 
 Each example is a separate project and ordered by complexity.
 
@@ -19,7 +34,7 @@ Each example is a separate project and ordered by complexity.
 - [Random Number Generator](./examples/random_number_generator/)
 - [Simple Form: BMI Calculator](./examples/simple_form/)
 - [Basic Components Gallery](./examples/basic_component_gallery/)
-- [Table with ServerLoad Example](./examples/table_server_load/)
+- [Table with Detail Pages](./examples/table_server_load/)
 - [ChatGPT-style Chatbot (pydantic-ai)](./examples/chatgpt/)
 - [Personal Portfolio](./examples/personal_portfolio/)
 - FastUI with other frameworks:
@@ -28,6 +43,15 @@ Each example is a separate project and ordered by complexity.
   - [BlackSheep Example](./examples/with-blacksheep/)
   - [Flask Example](./examples/with-flask/)
   - [Robyn Example](./examples/with-robyn/)
+  - [Bottle Example](./examples/with-bottle/)
+  - [Django Example](./examples/with-django/)
+  - [Emmett Example](./examples/with-emmett/)
+  - [Falcon Example](./examples/with-falcon/)
+  - [Pyramid Example](./examples/with-pyramid/)
+  - [Quart Example](./examples/with-quart/)
+  - [Sanic Example](./examples/with-sanic/)
+  - [Tornado Example](./examples/with-tornado/)
+  - Not implemented, with the reasons why: [Hug](./examples/with-hug/) and [Masonite](./examples/with-masonite/)
 - FAQ:
   - [Sub Application](./examples/sub_application/)
 

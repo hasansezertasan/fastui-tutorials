@@ -5,6 +5,7 @@ import uvicorn
 from fastui import AnyComponent, FastUI, prebuilt_html
 from fastui import components as c
 from litestar import Litestar, MediaType, get
+from litestar.plugins.pydantic import PydanticPlugin
 
 FastUI.model_rebuild()
 
@@ -20,7 +21,12 @@ async def root() -> str:
     return prebuilt_html(title="FastUI and Litestar Example")
 
 
-app = Litestar(route_handlers=[root, page])
+app = Litestar(
+    route_handlers=[root, page],
+    # FastUI's frontend reads camelCase keys (onClick, className), so serialize
+    # with aliases, and drop unset fields like response_model_exclude_none does.
+    plugins=[PydanticPlugin(prefer_alias=True, exclude_none=True)],
+)
 
 
 def main() -> None:

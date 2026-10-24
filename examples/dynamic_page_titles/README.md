@@ -1,5 +1,7 @@
 # Dynamic Page Titles
 
+> This example is explained step by step in the [tutorial](../../docs/tutorial/03-layout-and-titles.md).
+
 This is a simple example that demonstrates how to use the `PageTitle` component.
 
 Used Components:

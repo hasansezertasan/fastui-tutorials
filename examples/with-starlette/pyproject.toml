@@ -5,7 +5,7 @@ description = "FastUI example with Starlette"
 readme = "README.md"
 authors = [{ name = "hasansezertasan", email = "hasansezertasan@gmail.com" }]
 requires-python = ">=3.11"
-dependencies = ["fastui", "starlette", "uvicorn"]
+dependencies = ["fastui[fastapi]", "starlette", "uvicorn"]
 
 [project.scripts]
 with-starlette = "with_starlette:main"

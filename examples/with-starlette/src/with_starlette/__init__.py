@@ -17,7 +17,12 @@ FastUI.model_rebuild()
 
 
 def page(request: Request) -> JSONResponse:
-    return JSONResponse(FastUI(root=[c.Heading(text="Hello World")]).model_dump())
+    return JSONResponse(
+        FastUI(root=[c.Heading(text="Hello World")]).model_dump(
+            by_alias=True,
+            exclude_none=True,
+        ),
+    )
 
 
 def root(request: Request) -> HTMLResponse:

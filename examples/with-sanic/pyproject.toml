@@ -1,14 +1,17 @@
 [project]
 name = "with-sanic"
 version = "0.1.0"
-description = "FastUI integration with sanic"
+description = "FastUI example with Sanic"
 readme = "README.md"
 authors = [{ name = "hasansezertasan", email = "hasansezertasan@gmail.com" }]
 requires-python = ">=3.11"
-dependencies = []
+dependencies = ["fastui[fastapi]", "sanic"]
 
 [project.scripts]
 with-sanic = "with_sanic:main"
+
+[dependency-groups]
+dev = ["pytest", "sanic-testing"]
 
 [build-system]
 requires = ["uv_build>=0.12.10,<0.13.0"]

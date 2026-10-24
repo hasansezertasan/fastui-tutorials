@@ -1,5 +1,7 @@
 # Page Example
 
+> This example is explained step by step in the [tutorial](../../docs/tutorial/03-layout-and-titles.md).
+
 This is a simple example that demonstrates how to use the `Page` component to create a simple layout.
 
 Used Components:

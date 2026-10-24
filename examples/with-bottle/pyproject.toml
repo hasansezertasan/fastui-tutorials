@@ -1,14 +1,17 @@
 [project]
 name = "with-bottle"
 version = "0.1.0"
-description = "FastUI integration with bottle"
+description = "FastUI example with Bottle"
 readme = "README.md"
 authors = [{ name = "hasansezertasan", email = "hasansezertasan@gmail.com" }]
 requires-python = ">=3.11"
-dependencies = []
+dependencies = ["fastui[fastapi]", "bottle"]
 
 [project.scripts]
 with-bottle = "with_bottle:main"
+
+[dependency-groups]
+dev = ["pytest"]
 
 [build-system]
 requires = ["uv_build>=0.12.10,<0.13.0"]

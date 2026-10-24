@@ -1,5 +1,7 @@
 # Litestar and FastUI
 
+> See [Other web frameworks](../../docs/tutorial/08-other-frameworks.md) in the tutorial for how the framework examples compare.
+
 This is a simple example project that shows how to use FastUI with Litestar.
 
 Is it possible?

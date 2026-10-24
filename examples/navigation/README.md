@@ -1,5 +1,7 @@
 # Navigation
 
+> This example is explained step by step in the [tutorial](../../docs/tutorial/04-navigation.md).
+
 This example shows how to create a simple navigation bar with links to different pages.
 
 Used Components:

@@ -34,13 +34,7 @@ def test_blacksheep_app_serves_fastui_api_and_shell() -> None:
         assert api_content is not None
         assert api_content.type == b"application/json"
         assert json.loads(api_content.body) == [
-            {
-                "class_name": None,
-                "html_id": None,
-                "level": 1,
-                "text": "Hello World",
-                "type": "Heading",
-            },
+            {"level": 1, "text": "Hello World", "type": "Heading"},
         ]
 
         shell_response = await client.get("/docs/anything")

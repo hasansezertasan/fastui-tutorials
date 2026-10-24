@@ -5,7 +5,7 @@ description = "FastUI example with Robyn"
 readme = "README.md"
 authors = [{ name = "hasansezertasan", email = "hasansezertasan@gmail.com" }]
 requires-python = ">=3.11"
-dependencies = ["fastui", "robyn"]
+dependencies = ["fastui[fastapi]", "robyn"]
 
 [project.scripts]
 with-robyn = "with_robyn:main"

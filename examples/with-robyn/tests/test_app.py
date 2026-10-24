@@ -42,11 +42,5 @@ def test_robyn_api_route_returns_fastui_json() -> None:
     # Robyn serializes the returned list to JSON itself, so the handler
     # returns the component tree as plain Python objects.
     assert handler(cast("Request", object())) == [
-        {
-            "class_name": None,
-            "html_id": None,
-            "level": 1,
-            "text": "Hello World",
-            "type": "Heading",
-        },
+        {"level": 1, "text": "Hello World", "type": "Heading"},
     ]
