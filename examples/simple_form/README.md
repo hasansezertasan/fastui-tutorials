@@ -1,5 +1,7 @@
 # Simple Form: BMI Calculator
 
+> This example is explained step by step in the [tutorial](../../docs/tutorial/06-forms.md).
+
 This example is inspired by [PyWebIO][pywebio] [documentation][pywebio-hello-world]. It is the first example in the documentation so I thought it would be a good idea to use it as a starting point for forms in FastUI.
 
 Used Components:

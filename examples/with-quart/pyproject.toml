@@ -1,7 +1,7 @@
 [project]
 name = "with-quart"
 version = "0.1.0"
-description = "FastUI integration with quart"
+description = "FastUI example with Quart"
 readme = "README.md"
 authors = [{ name = "hasansezertasan", email = "hasansezertasan@gmail.com" }]
 requires-python = ">=3.11"

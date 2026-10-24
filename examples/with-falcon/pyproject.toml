@@ -1,11 +1,11 @@
 [project]
 name = "with-falcon"
 version = "0.1.0"
-description = "FastUI integration with falcon"
+description = "FastUI example with Falcon"
 readme = "README.md"
 authors = [{ name = "hasansezertasan", email = "hasansezertasan@gmail.com" }]
 requires-python = ">=3.11"
-dependencies = []
+dependencies = ["fastui", "falcon"]
 
 [project.scripts]
 with-falcon = "with_falcon:main"

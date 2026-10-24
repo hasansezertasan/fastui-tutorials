@@ -1,7 +1,7 @@
 [project]
 name = "with-django"
 version = "0.1.0"
-description = "FastUI integration with django"
+description = "FastUI example with Django"
 readme = "README.md"
 authors = [{ name = "hasansezertasan", email = "hasansezertasan@gmail.com" }]
 requires-python = ">=3.11"

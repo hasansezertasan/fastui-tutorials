@@ -1,5 +1,7 @@
 # FastUI Table with ServerLoad Example
 
+> This example is explained step by step in the [tutorial](../../docs/tutorial/07-tables.md).
+
 This example demonstrates how to pass an `id` from a table row to a `ServerLoad` component using `PageEvent` in FastUI.
 
 This pattern is useful for loading additional details for a specific item when a user clicks on a row in a table.

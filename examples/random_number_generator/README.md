@@ -1,5 +1,7 @@
 # Random Number Generator
 
+> This example is explained step by step in the [tutorial](../../docs/tutorial/05-server-load.md).
+
 This is a simple random number generator.
 
 Used Components:

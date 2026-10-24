@@ -1,5 +1,7 @@
 # Hello World
 
+> This example is explained step by step in the [tutorial](../../docs/tutorial/02-hello-world.md).
+
 This is a simple hello world example built with FastUI.
 
 Used Components:
